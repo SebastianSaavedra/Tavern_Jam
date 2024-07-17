@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cftxyvgk6ikr8"]
+
+[ext_resource type="PackedScene" uid="uid://bvx4o8wbjcsgn" path="res://Scenes/TestGnome.tscn" id="1_5ynyk"]
+
+[node name="Arena" type="Node2D"]
+
+[node name="TestGnome" parent="." instance=ExtResource("1_5ynyk")]

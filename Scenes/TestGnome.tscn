@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvx4o8wbjcsgn"]
+
+[ext_resource type="Texture2D" uid="uid://ccdudooffqhjj" path="res://Assets/Test/gnome.png" id="1_mjxs2"]
+
+[node name="TestGnome" type="Node2D"]
+
+[node name="TestGnomeImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_mjxs2")
