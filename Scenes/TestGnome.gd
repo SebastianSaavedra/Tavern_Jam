@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var speed := 500
 
@@ -13,7 +13,8 @@ func _ready():
 func _process(delta):
 	#Input direction to movement
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
-	position += direction * speed * delta
+	velocity = direction * speed
+	move_and_slide()
 	
 	# Sprite Flip
 	if direction.x <= -0.15:
