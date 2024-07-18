@@ -13,7 +13,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(velocity)
 	
 	#Input direction to movement
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
