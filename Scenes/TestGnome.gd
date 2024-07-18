@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-@export var speed := 500
+@export var max_speed := 300
+@export var acceleration := 50
+@export var friction := 40
 
 var lookLeft := false
 
@@ -11,9 +13,32 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(velocity)
+	
 	#Input direction to movement
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
-	velocity = direction * speed
+	if direction.x:
+		#Avoid 1frame-turn-arround bug
+		if direction.x * velocity.x >= 0:
+			#Accelerate
+			velocity.x = move_toward(velocity.x, direction.x * max_speed, acceleration)
+		else:
+			#On turn around: Decelaretion based on friction, not acceleration
+			velocity.x = move_toward(velocity.x, direction.x * max_speed, friction)
+	else:
+		velocity.x = move_toward(velocity.x, direction.x * max_speed, friction)
+	
+	if direction.y:
+		#Avoid 1frame-turn-arround bug
+		if direction.y * velocity.y >= 0:
+			#Accelerate
+			velocity.y = move_toward(velocity.y, direction.y * max_speed, acceleration)
+		else:
+			#On turn around: Decelaretion based on friction, not acceleration
+			velocity.y = move_toward(velocity.y, direction.y * max_speed, friction)
+	else:
+		velocity.y = move_toward(velocity.y, direction.y * max_speed, friction)
+	
 	move_and_slide()
 	
 	# Sprite Flip
@@ -23,5 +48,4 @@ func _process(delta):
 	if direction.x >= 0.15:
 		$TestGnomeImage.flip_h = false
 		lookLeft = false
-		
 		
