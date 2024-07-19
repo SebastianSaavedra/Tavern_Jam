@@ -6,13 +6,19 @@ var playerIn: bool = false
 var playerSeen: bool = false
 var chasing: bool = false
 
+@export var positions: Array[Node2D]
+var next_position: Node2D
+var next_position_value: int = 0
+
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var ray_cast = $RayCast2D
 
 func _ready():
-	
-	pass
+	next_position = positions[0]
+	next_position_value = 1
+	chasing = false
+	$Timer.start()
 	
 
 func _physics_process(_delta: float) -> void:
@@ -42,11 +48,27 @@ func _physics_process(_delta: float) -> void:
 		velocity = dir * speed
 		move_and_slide()
 	else:
-		$Timer.stop()
+		#Patrol movement
+		var dir = to_local(nav_agent.get_next_path_position()).normalized()
+		velocity = dir * speed
+		move_and_slide()
+		if global_position.distance_to(next_position.global_position) <= 5:
+			if next_position_value < positions.size():
+				next_position = positions[next_position_value]
+				next_position_value += 1
+				print("next pos")
+			else:
+				next_position = positions[0]
+				next_position_value = 1
+				print("reset")
 		
 
 func make_path() -> void:
-	nav_agent.target_position = player.global_position
+	if chasing:
+		nav_agent.target_position = player.global_position
+	else:
+		nav_agent.target_position = next_position.global_position
+		pass
 	
 
 func _on_timer_timeout():
