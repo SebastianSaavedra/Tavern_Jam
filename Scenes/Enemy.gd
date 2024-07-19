@@ -15,10 +15,10 @@ var next_position_value: int = 0
 @onready var ray_cast = $RayCast2D
 
 func _ready():
-	next_position = positions[0]
-	next_position_value = 1
 	chasing = false
 	$Timer.start()
+	next_position_value = 1
+	next_position = positions[0]
 	
 
 func _physics_process(_delta: float) -> void:
@@ -33,6 +33,8 @@ func _physics_process(_delta: float) -> void:
 				playerSeen = true
 				print("heyho")
 				
+				player.speed_up()
+				player.cannot_hide()
 				chasing = true
 				$Timer2.stop()
 				$Timer.start()
@@ -91,6 +93,8 @@ func _on_area_2d_body_exited(body):
 	if body == player:
 		playerIn = false
 		$Timer2.start()
+		body.slow_down()
+		player.Can_Hide()
 		print("exited")
 		
 
@@ -98,5 +102,7 @@ func _on_timer_2_timeout():
 	playerIn = false
 	chasing = false
 	playerSeen = false
+	player.slow_down()
+	player.Can_Hide()
 	print("escaped")
 	
