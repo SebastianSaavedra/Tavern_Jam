@@ -46,6 +46,11 @@ Down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Tilemap"
+
 [navigation]
 
 2d/default_edge_connection_margin=3.0

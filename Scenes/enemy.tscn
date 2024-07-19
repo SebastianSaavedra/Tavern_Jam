@@ -10,8 +10,8 @@ radius = 33.0151
 radius = 316.737
 
 [node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(0.3, 0.3)
-collision_layer = 2
+scale = Vector2(0.4, 0.4)
+collision_layer = 3
 collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -29,8 +29,8 @@ radius = 51.05
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
+process_callback = 0
 wait_time = 0.1
-autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 3
@@ -39,6 +39,7 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_7i0x0")
 
 [node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
