@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6eb1hy5io7bw"]
+
+[ext_resource type="PackedScene" uid="uid://b62bv6m2fm7ow" path="res://01_Sprites/player_sprites.tscn" id="1_cj4sk"]
+
+[node name="DoseiTest" type="Node2D"]
+
+[node name="Player Sprites" parent="." instance=ExtResource("1_cj4sk")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(12, -17)
+zoom = Vector2(2, 2)
