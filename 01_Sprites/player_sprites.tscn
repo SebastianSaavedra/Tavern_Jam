@@ -106,7 +106,7 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_128t1")
 }],
-"loop": true,
+"loop": false,
 "name": &"Player_Attack",
 "speed": 5.0
 }, {
@@ -244,7 +244,7 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_sxaw7")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hat_Attack",
 "speed": 5.0
 }, {
@@ -354,7 +354,6 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_uaebq"]
 resource_name = "AttackPlayer"
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -451,14 +450,14 @@ _data = {
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_xhp4p")
-animation = &"Player_Idle"
+animation = &"Player_Attack"
 autoplay = "Player_Idle"
 
 [node name="PlayerHatSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_n3otc")
-animation = &"Hat_Idle"
+animation = &"Hat_Attack"
 autoplay = "Hat_Idle"
 
 [node name="Magic_ON" type="AnimatedSprite2D" parent="."]
@@ -482,7 +481,6 @@ libraries = {
 autoplay = "Glow_magic_On"
 
 [node name="Attack" type="Node2D" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0.243137)
 texture_filter = 1
 texture_repeat = 1
