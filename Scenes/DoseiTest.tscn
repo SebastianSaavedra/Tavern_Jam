@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6eb1hy5io7bw"]
+[gd_scene load_steps=3 format=3 uid="uid://c6eb1hy5io7bw"]
 
 [ext_resource type="PackedScene" uid="uid://b62bv6m2fm7ow" path="res://01_Sprites/player_sprites.tscn" id="1_cj4sk"]
+[ext_resource type="PackedScene" uid="uid://3kycacu8y2q4" path="res://01_Sprites/enemy_sprites.tscn" id="2_gjc2t"]
 
 [node name="DoseiTest" type="Node2D"]
 
@@ -9,3 +10,6 @@
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(12, -17)
 zoom = Vector2(2, 2)
+
+[node name="Enemy Sprites" parent="." instance=ExtResource("2_gjc2t")]
+position = Vector2(-47, 2)

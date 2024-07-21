@@ -1,0 +1,98 @@
+[gd_scene load_steps=15 format=3 uid="uid://3kycacu8y2q4"]
+
+[ext_resource type="Texture2D" uid="uid://dw0pnfan5g0or" path="res://01_Sprites/enemy/caballero_idle-Sheet.png" id="1_v1r6g"]
+[ext_resource type="Texture2D" uid="uid://b7q04hnpb51bv" path="res://01_Sprites/enemy/caballero_stun-Sheet.png" id="2_s57o7"]
+[ext_resource type="Texture2D" uid="uid://dh0o7wqhe5ck4" path="res://01_Sprites/enemy/caballero_walk-Sheet.png" id="3_fqotn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm0br"]
+atlas = ExtResource("1_v1r6g")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k38g"]
+atlas = ExtResource("1_v1r6g")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h88yt"]
+atlas = ExtResource("2_s57o7")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvr6r"]
+atlas = ExtResource("2_s57o7")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xxho"]
+atlas = ExtResource("2_s57o7")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l3b7"]
+atlas = ExtResource("2_s57o7")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ufgh"]
+atlas = ExtResource("3_fqotn")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th4hw"]
+atlas = ExtResource("3_fqotn")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvbhr"]
+atlas = ExtResource("3_fqotn")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnjei"]
+atlas = ExtResource("3_fqotn")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uob3d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm0br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k38g")
+}],
+"loop": true,
+"name": &"Enemy_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h88yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvr6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xxho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l3b7")
+}],
+"loop": true,
+"name": &"Enemy_Stun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_6ufgh")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_th4hw")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_cvbhr")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_cnjei")
+}],
+"loop": true,
+"name": &"Enemy_Walk",
+"speed": 5.0
+}]
+
+[node name="Enemy Sprites" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_uob3d")
+animation = &"Enemy_Idle"
+autoplay = "Enemy_Idle"

@@ -1,13 +1,15 @@
-[gd_scene load_steps=56 format=3 uid="uid://b62bv6m2fm7ow"]
+[gd_scene load_steps=62 format=3 uid="uid://b62bv6m2fm7ow"]
 
 [ext_resource type="Texture2D" uid="uid://bq6si4n1vfsyi" path="res://01_Sprites/Laftrache/laftrache_Attack-Sheet.png" id="1_y4c68"]
 [ext_resource type="Texture2D" uid="uid://b6e0hao6nijnx" path="res://01_Sprites/Laftrache/laftrache_death-Sheet.png" id="2_6yvsl"]
 [ext_resource type="Texture2D" uid="uid://cn6ctsn7rcb7t" path="res://01_Sprites/Laftrache/laftrache_hit-Sheet.png" id="3_arbir"]
+[ext_resource type="Texture2D" uid="uid://tx882x3y4n7s" path="res://01_Sprites/Laftrache/laftrache_Hidden-Sheet.png" id="3_fflf8"]
 [ext_resource type="Texture2D" uid="uid://bf8dpt4xr8wg7" path="res://01_Sprites/Laftrache/laftrache_idle-Sheet.png" id="4_1qkiy"]
 [ext_resource type="Texture2D" uid="uid://bit2v7jvuscrm" path="res://01_Sprites/Laftrache/laftrache_Walk-Sheet.png" id="5_dsjhq"]
 [ext_resource type="Texture2D" uid="uid://da6ilj7afqiec" path="res://01_Sprites/Laftrache/HAT_Attack-Sheet.png" id="6_vfrgx"]
 [ext_resource type="Texture2D" uid="uid://fd1hn8mnoqlf" path="res://01_Sprites/Laftrache/Hat_idle-Sheet.png" id="7_8hvjr"]
 [ext_resource type="Texture2D" uid="uid://cgyri8vdrm5vv" path="res://01_Sprites/Laftrache/Hat_Walk-Sheet.png" id="8_07r1s"]
+[ext_resource type="Texture2D" uid="uid://baxfbl3r8kaib" path="res://01_Sprites/Laftrache/Hat_Hidden.png" id="8_t0wcq"]
 [ext_resource type="Texture2D" uid="uid://ctbusqn4ykm5e" path="res://01_Sprites/Laftrache/laftrache_Magic-Sheet.png" id="9_fpf5c"]
 [ext_resource type="Texture2D" uid="uid://vayj4llpfrr6" path="res://01_Sprites/Laftrache/abstract bright white point light_6282615.png" id="10_25n8c"]
 [ext_resource type="Texture2D" uid="uid://bu2gq6o3vk3yq" path="res://01_Sprites/Laftrache/Sprite_Attack_Playe02.png" id="11_lpntr"]
@@ -44,6 +46,22 @@ region = Rect2(0, 0, 32, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhr6s"]
 atlas = ExtResource("2_6yvsl")
 region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cdpj"]
+atlas = ExtResource("3_fflf8")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rihev"]
+atlas = ExtResource("3_fflf8")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu251"]
+atlas = ExtResource("3_fflf8")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcs7r"]
+atlas = ExtResource("3_fflf8")
+region = Rect2(96, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dybiv"]
 atlas = ExtResource("3_arbir")
@@ -119,6 +137,23 @@ animations = [{
 }],
 "loop": false,
 "name": &"Player_Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cdpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rihev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu251")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcs7r")
+}],
+"loop": true,
+"name": &"Player_Hidden",
 "speed": 5.0
 }, {
 "frames": [{
@@ -246,6 +281,14 @@ animations = [{
 }],
 "loop": false,
 "name": &"Hat_Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_t0wcq")
+}],
+"loop": true,
+"name": &"Hat_Hidden",
 "speed": 5.0
 }, {
 "frames": [{
@@ -450,15 +493,17 @@ _data = {
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_xhp4p")
-animation = &"Player_Attack"
+animation = &"Player_Idle"
 autoplay = "Player_Idle"
+frame_progress = 0.368429
 
 [node name="PlayerHatSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_n3otc")
-animation = &"Hat_Attack"
+animation = &"Hat_Idle"
 autoplay = "Hat_Idle"
+frame_progress = 0.270437
 
 [node name="Magic_ON" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
