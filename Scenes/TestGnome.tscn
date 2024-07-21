@@ -1,17 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvx4o8wbjcsgn"]
 
-[ext_resource type="Texture2D" uid="uid://ccdudooffqhjj" path="res://Assets/Test/gnome.png" id="1_mjxs2"]
 [ext_resource type="Script" path="res://Scenes/TestGnome.gd" id="1_u20j3"]
+[ext_resource type="PackedScene" uid="uid://b62bv6m2fm7ow" path="res://01_Sprites/player_sprites.tscn" id="3_8djne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qsju"]
 size = Vector2(22, 21)
 
-[node name="TestGnome" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_u20j3")
 
-[node name="TestGnomeImage" type="Sprite2D" parent="."]
-texture = ExtResource("1_mjxs2")
+[node name="Player Sprites" parent="." instance=ExtResource("3_8djne")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cftxyvgk6ikr8"]
 
+[ext_resource type="PackedScene" uid="uid://bvx4o8wbjcsgn" path="res://Scenes/TestGnome.tscn" id="1_5ynyk"]
 [ext_resource type="Texture2D" uid="uid://dm8rqs3s1s2pv" path="res://Assets/Test/placeholdertilemap.png" id="1_i637b"]
 [ext_resource type="PackedScene" uid="uid://c03hm0bmfwurj" path="res://Scenes/enemy.tscn" id="3_y72tb"]
-[ext_resource type="PackedScene" uid="uid://cu8s3xbtvioso" path="res://Scenes/player.tscn" id="4_pxjm5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8j2pd"]
 vertices = PackedVector2Array(15, 15, -15, 15, -15, -15, 15, -15)
@@ -43,11 +43,12 @@ layer_0/tile_data = PackedInt32Array(-131077, 0, 0, -131076, 0, 0, -131075, 0, 0
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.17, 1.17)
 
+[node name="Player" parent="." instance=ExtResource("1_5ynyk")]
+
 [node name="Enemy1" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemy1" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_y72tb")]
 position = Vector2(298, 180)
-collision_layer = 4
 positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3")]
 player = NodePath("../../Player")
 
@@ -70,10 +71,3 @@ collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_n5j6p")
-
-[node name="Player" parent="." instance=ExtResource("4_pxjm5")]
-collision_layer = 9
-collision_mask = 11
-
-[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Player" method="_on_area_2d_body_exited"]
