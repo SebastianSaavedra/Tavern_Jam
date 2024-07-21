@@ -532,14 +532,14 @@ point_count = 2
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_xhp4p")
-animation = &"Player_Walk"
+animation = &"Player_Idle"
 autoplay = "Player_Idle"
 
 [node name="PlayerHatSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_n3otc")
-animation = &"Hat_Walk"
+animation = &"Hat_Idle"
 autoplay = "Hat_Idle"
 
 [node name="Magic_ON" type="AnimatedSprite2D" parent="."]
@@ -594,6 +594,7 @@ libraries = {
 speed_scale = 1.2
 
 [node name="locura" type="Node2D" parent="."]
+visible = false
 position = Vector2(4, 13)
 
 [node name="eyes" type="CPUParticles2D" parent="locura"]
@@ -651,6 +652,7 @@ anim_speed_max = 2.0
 visible = false
 texture_filter = 1
 position = Vector2(0, -14)
+emitting = false
 amount = 1
 one_shot = true
 texture = ExtResource("15_m14b1")
@@ -663,6 +665,7 @@ scale_amount_curve = SubResource("Curve_o8mjy")
 visible = false
 material = SubResource("CanvasItemMaterial_ep2jt")
 position = Vector2(4, 13)
+emitting = false
 amount = 3
 one_shot = true
 speed_scale = 2.0

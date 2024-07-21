@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c03hm0bmfwurj"]
+[gd_scene load_steps=6 format=3 uid="uid://c03hm0bmfwurj"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy.gd" id="1_4jori"]
 [ext_resource type="Texture2D" uid="uid://cci3qstcl0yca" path="res://icon.svg" id="2_4ysix"]
+[ext_resource type="PackedScene" uid="uid://3kycacu8y2q4" path="res://01_Sprites/enemy_sprites.tscn" id="3_gdp6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_00v24"]
 radius = 33.0151
@@ -18,8 +19,15 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_4jori")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_4ysix")
+
+[node name="Enemy Sprites" parent="." instance=ExtResource("3_gdp6d")]
+position = Vector2(0, -67.5)
+scale = Vector2(3.11914, 3.11914)
+animation = &"Enemy_Stun"
+frame_progress = 0.594535
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_00v24")
@@ -33,6 +41,7 @@ process_callback = 0
 wait_time = 0.1
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_mask = 3
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]

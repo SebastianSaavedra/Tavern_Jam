@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const speed = 35
+var lookLeft := false
 
 var playerIn: bool = false
 var playerSeen: bool = false
@@ -15,6 +16,9 @@ var next_position_value: int = 0
 @export var player: Node2D
 var player_attack_CD : Timer = null
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
+@onready var my_anim : AnimatedSprite2D = $"Enemy Sprites"
+@onready var my_particle : CPUParticles2D = $"Enemy Sprites".get_node("Stun Particles")
+
 
 func _ready():
 	chasing = false
@@ -51,6 +55,27 @@ func _physics_process(_delta: float):
 	if player.hiding == false || $Timer2.time_left == 0:
 		if stunned == false:
 			move_and_slide()
+			#Anim
+			if my_anim.animation != "Enemy_Walk":
+				my_anim.play("Enemy_Walk")
+				my_particle.visible = false
+		else:
+			my_anim.play("Enemy_Stun")
+			my_particle.visible = true
+			
+	else:
+		if my_anim.animation != "Enemy_Idle":
+			my_anim.play("Enemy_Idle")
+			my_particle.visible = false
+	
+	if dir.x <= -0.15:
+		if lookLeft == false:
+			$"Enemy Sprites".scale.x *= -1
+			lookLeft = true
+	if dir.x >= 0.15:
+		if lookLeft == true:
+			$"Enemy Sprites".scale.x *= -1
+			lookLeft = false
 	
 	# De-stun
 	if stunned == true && $Timer_Stun.time_left == 0:

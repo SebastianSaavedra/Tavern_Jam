@@ -74,16 +74,16 @@ func _process(delta):
 			moving = false
 		else:
 			moving = true
-	if direction != Vector2(0,0) && moving == false && anim_in_progress == false:
+	if direction != Vector2(0,0) && moving == false && anim_in_progress == false && hiding == false:
 		moving = true
 		anim_body.play("Player_Walk")
 		anim_hat.play("Hat_Walk")
-		print("walking here!")
-	if direction == Vector2(0,0) && moving == true && anim_in_progress == false:
+		
+	if direction == Vector2(0,0) && moving == true && anim_in_progress == false && hiding == false:
 		moving = false
 		anim_body.play("Player_Idle")
 		anim_hat.play("Hat_Idle")
-		print("idle")
+		
 	
 	# Hide Action
 	if hiding == false && can_hide == true && in_hide_area == true && Input.is_action_just_pressed("Hide"):
@@ -97,6 +97,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("Attack") && $Timer_AttackCD.time_left == 0:
 		magic_glow.enabled = false
 		$Timer_AttackCD.start()
+		stop_hiding()
 		can_attack = false
 		# Anims
 		anim_attack.play("AttackPlayer")
@@ -128,11 +129,17 @@ func start_anim(timer):
 
 
 func start_hiding():
+	can_attack = false
 	can_move = false
 	hiding = true
+	anim_in_progress = true
+	anim_body.play("Player_Hidden")
+	anim_hat.play("Hat_Hidden")
 	print("g'bye")
 		
 func stop_hiding():
+	can_attack = true
+	anim_in_progress = false
 	can_move = true
 	hiding = false
 	print("yo")

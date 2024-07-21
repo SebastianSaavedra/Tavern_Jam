@@ -98,7 +98,6 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_uob3d")
 animation = &"Enemy_Idle"
 autoplay = "Enemy_Idle"
-frame_progress = 0.265453
 
 [node name="Stun Particles" parent="." instance=ExtResource("4_ak77u")]
 visible = false
