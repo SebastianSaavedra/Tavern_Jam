@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://btle8vat7uo1x"]
+
+[ext_resource type="Texture2D" uid="uid://dlkvgrfydrtut" path="res://01_Sprites/Particles/particulas_stun-Sheet.png" id="1_sh315"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j2e1k"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_5h1k4"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_3p33v"]
+_data = [Vector2(0, 0.252747), 0.0, 3.75766, 0, 0, Vector2(0.522472, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.74909, 0.0, 0, 0]
+point_count = 3
+
+[node name="Stun Particles" type="CPUParticles2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_j2e1k")
+position = Vector2(0, -1)
+amount = 3
+lifetime = 2.0
+speed_scale = 2.0
+explosiveness = 1.0
+texture = ExtResource("1_sh315")
+emission_shape = 1
+emission_sphere_radius = 16.0
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+orbit_velocity_max = 1.0
+radial_accel_max = 15.0
+angle_curve = SubResource("Curve_5h1k4")
+scale_amount_min = 0.0
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_3p33v")
+anim_speed_min = 5.0
+anim_speed_max = 5.0

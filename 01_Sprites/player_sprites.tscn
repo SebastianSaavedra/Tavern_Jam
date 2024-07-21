@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://b62bv6m2fm7ow"]
+[gd_scene load_steps=73 format=3 uid="uid://b62bv6m2fm7ow"]
 
 [ext_resource type="Texture2D" uid="uid://bq6si4n1vfsyi" path="res://01_Sprites/Laftrache/laftrache_Attack-Sheet.png" id="1_y4c68"]
 [ext_resource type="Texture2D" uid="uid://b6e0hao6nijnx" path="res://01_Sprites/Laftrache/laftrache_death-Sheet.png" id="2_6yvsl"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://vayj4llpfrr6" path="res://01_Sprites/Laftrache/abstract bright white point light_6282615.png" id="10_25n8c"]
 [ext_resource type="Texture2D" uid="uid://bu2gq6o3vk3yq" path="res://01_Sprites/Laftrache/Sprite_Attack_Playe02.png" id="11_lpntr"]
 [ext_resource type="Texture2D" uid="uid://dkb6xonj3o8hq" path="res://01_Sprites/Laftrache/Sprite_Attack_Playe01.png" id="12_jp4a7"]
+[ext_resource type="Texture2D" uid="uid://fuep5psdxavs" path="res://01_Sprites/Particles/particulas_locura1-Sheet.png" id="15_42brd"]
+[ext_resource type="Texture2D" uid="uid://c23rm26y4pwi" path="res://01_Sprites/Laftrache/laftrache_HAT.png" id="15_m14b1"]
+[ext_resource type="Texture2D" uid="uid://bmlp5a5ud2xs2" path="res://01_Sprites/Particles/particulas_daño-Sheet.png" id="15_q8vro"]
+[ext_resource type="Texture2D" uid="uid://djni5qhfnekex" path="res://01_Sprites/Particles/particulas_locura2-Sheet.png" id="16_llput"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tvics"]
 atlas = ExtResource("1_y4c68")
@@ -185,16 +189,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_cwih0")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_6yjhj")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_153yn")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_wnbix")
 }],
 "loop": true,
@@ -309,16 +313,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_keifd")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_n75o1")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_bujfb")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ec45q")
 }],
 "loop": true,
@@ -487,23 +491,56 @@ _data = {
 "AttackPlayer": SubResource("Animation_uaebq")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2pidj"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_5es3q"]
+offsets = PackedFloat32Array(0, 0.486667, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.803922, 1, 1, 1, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v0ygc"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_meoov"]
+max_value = 2.0
+_data = [Vector2(0.011236, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_o8mjy"]
+_data = [Vector2(0.0786517, 1), 0.0, 0.0, 0, 0, Vector2(0.780899, 0.901099), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ep2jt"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_3j0bp"]
+_data = [Vector2(0, 0.263736), 0.0, 0.0, 0, 0, Vector2(1, 0.516483), -4.45544, 0.0, 0, 0]
+point_count = 2
+
 [node name="Player Sprites" type="Node2D"]
 
 [node name="player_BodySprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_xhp4p")
-animation = &"Player_Idle"
+animation = &"Player_Walk"
 autoplay = "Player_Idle"
-frame_progress = 0.368429
 
 [node name="PlayerHatSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_n3otc")
-animation = &"Hat_Idle"
+animation = &"Hat_Walk"
 autoplay = "Hat_Idle"
-frame_progress = 0.270437
 
 [node name="Magic_ON" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -555,3 +592,90 @@ libraries = {
 "": SubResource("AnimationLibrary_qiojg")
 }
 speed_scale = 1.2
+
+[node name="locura" type="Node2D" parent="."]
+position = Vector2(4, 13)
+
+[node name="eyes" type="CPUParticles2D" parent="locura"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_2pidj")
+amount = 15
+lifetime = 2.0
+texture = ExtResource("15_42brd")
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+radial_accel_min = 100.0
+radial_accel_max = 100.0
+damping_min = 100.0
+damping_max = 100.0
+color_ramp = SubResource("Gradient_5es3q")
+anim_speed_min = 2.0
+anim_speed_max = 2.0
+
+[node name="skulls" type="CPUParticles2D" parent="locura"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_v0ygc")
+amount = 5
+lifetime = 4.0
+texture = ExtResource("16_llput")
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+linear_accel_min = 50.0
+linear_accel_max = 50.0
+radial_accel_min = 100.0
+radial_accel_max = 100.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_curve = SubResource("Curve_meoov")
+color_ramp = SubResource("Gradient_5es3q")
+anim_speed_min = 2.0
+anim_speed_max = 2.0
+
+[node name="hatOFF_particle" type="CPUParticles2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -14)
+amount = 1
+one_shot = true
+texture = ExtResource("15_m14b1")
+gravity = Vector2(-10, 100)
+angular_velocity_min = 600.0
+angular_velocity_max = 600.0
+scale_amount_curve = SubResource("Curve_o8mjy")
+
+[node name="hit_particle" type="CPUParticles2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_ep2jt")
+position = Vector2(4, 13)
+amount = 3
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+texture = ExtResource("15_q8vro")
+emission_shape = 2
+emission_sphere_radius = 10.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_3j0bp")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+anim_speed_min = 2.0
+anim_speed_max = 2.0
