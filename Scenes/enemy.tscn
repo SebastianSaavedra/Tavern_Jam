@@ -42,6 +42,9 @@ shape = SubResource("CircleShape2D_7i0x0")
 wait_time = 2.0
 one_shot = true
 
+[node name="Timer_Stun" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -6,12 +6,22 @@ var start_speed := 100
 @export var acceleration := 50
 @export var friction := 40
 var can_move := true
+var moving := false
+
+var can_attack := false
 
 var can_hide := true
 var in_hide_area := false
 var hiding := false
 
 var lookLeft := false
+
+var anim_in_progress := false
+@onready var anim_body : AnimatedSprite2D = $"Player Sprites".get_node("player_BodySprite")
+@onready var anim_hat : AnimatedSprite2D = $"Player Sprites".get_node("PlayerHatSprite")
+@onready var anim_attack : AnimationPlayer = $"Player Sprites".get_node("Attack").get_node("Attack_Anim")
+@onready var magic_glow : PointLight2D = $"Player Sprites".get_node("Magic_ON").get_node("PointLight2D")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +31,7 @@ func _ready():
 	can_hide = true
 	in_hide_area = false
 	hiding = false
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,6 +64,26 @@ func _process(delta):
 	if can_move == true:
 		move_and_slide()
 		
+	#Anims
+	if $Timer_Anim.time_left == 0:
+		$Timer_Anim.wait_time = 1
+		$Timer_Anim.start()
+		$Timer_Anim.paused = true
+		anim_in_progress = false
+		if direction != Vector2(0,0):
+			moving = false
+		else:
+			moving = true
+	if direction != Vector2(0,0) && moving == false && anim_in_progress == false:
+		moving = true
+		anim_body.play("Player_Walk")
+		anim_hat.play("Hat_Walk")
+		print("walking here!")
+	if direction == Vector2(0,0) && moving == true && anim_in_progress == false:
+		moving = false
+		anim_body.play("Player_Idle")
+		anim_hat.play("Hat_Idle")
+		print("idle")
 	
 	# Hide Action
 	if hiding == false && can_hide == true && in_hide_area == true && Input.is_action_just_pressed("Hide"):
@@ -61,6 +92,22 @@ func _process(delta):
 	elif hiding == true && Input.is_action_just_pressed("Hide"):
 		stop_hiding()
 		
+	
+	#Attack Action
+	if Input.is_action_just_pressed("Attack") && $Timer_AttackCD.time_left == 0:
+		magic_glow.enabled = false
+		$Timer_AttackCD.start()
+		can_attack = false
+		# Anims
+		anim_attack.play("AttackPlayer")
+		anim_body.play("Player_Attack")
+		anim_hat.play("Hat_Attack")
+		start_anim(0.9)
+		
+	if $Timer_AttackCD.time_left == 0 && can_attack == false:
+		print("can attack")
+		magic_glow.enabled = true
+		can_attack = true
 	
 	
 	# Sprite Flip
@@ -73,6 +120,13 @@ func _process(delta):
 			$"Player Sprites".scale.x *= -1
 			lookLeft = false
 		
+func start_anim(timer):
+		anim_in_progress = true
+		$Timer_Anim.paused = false
+		$Timer_Anim.wait_time = timer
+		$Timer_Anim.start()
+
+
 func start_hiding():
 	can_move = false
 	hiding = true

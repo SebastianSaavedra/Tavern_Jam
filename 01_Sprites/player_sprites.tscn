@@ -450,7 +450,7 @@ _data = {
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_xhp4p")
-animation = &"Player_Idle"
+animation = &"Player_Attack"
 autoplay = "Player_Idle"
 
 [node name="PlayerHatSprite" type="AnimatedSprite2D" parent="."]
@@ -466,6 +466,7 @@ texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_h8mc6")
 animation = &"magic_IDLE_WALK"
 autoplay = "magic_IDLE_WALK"
+frame_progress = 0.288419
 
 [node name="PointLight2D" type="PointLight2D" parent="Magic_ON"]
 position = Vector2(13, -16)
@@ -504,8 +505,8 @@ texture = ExtResource("10_25n8c")
 texture_scale = 0.2
 
 [node name="Attack_Anim" type="AnimationPlayer" parent="Attack"]
+reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_qiojg")
 }
-autoplay = "AttackPlayer"
 speed_scale = 1.2

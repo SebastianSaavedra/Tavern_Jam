@@ -44,6 +44,8 @@ layer_0/tile_data = PackedInt32Array(-131077, 0, 0, -131076, 0, 0, -131075, 0, 0
 zoom = Vector2(1.17, 1.17)
 
 [node name="Player" parent="." instance=ExtResource("1_5ynyk")]
+collision_layer = 1
+collision_mask = 11
 
 [node name="Enemy1" type="Node2D" parent="."]
 
@@ -67,7 +69,10 @@ scale = Vector2(0.4, 0.4)
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-205.363, -41.9038)
 collision_layer = 9
-collision_mask = 10
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_n5j6p")
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Player" method="_on_area_2d_body_exited"]

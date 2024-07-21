@@ -4,14 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://b62bv6m2fm7ow" path="res://01_Sprites/player_sprites.tscn" id="3_8djne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qsju"]
-size = Vector2(22, 21)
+size = Vector2(18, 21)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 9
 collision_mask = 3
 script = ExtResource("1_u20j3")
 
 [node name="Player Sprites" parent="." instance=ExtResource("3_8djne")]
+position = Vector2(0, -20.755)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_1qsju")
+
+[node name="Timer_AttackCD" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer_Anim" type="Timer" parent="."]
+one_shot = true
