@@ -65,11 +65,13 @@ func _process(delta):
 	
 	# Sprite Flip
 	if direction.x <= -0.15:
-		$TestGnomeImage.flip_h = true
-		lookLeft = true
+		if lookLeft == false:
+			$"Player Sprites".scale.x *= -1
+			lookLeft = true
 	if direction.x >= 0.15:
-		$TestGnomeImage.flip_h = false
-		lookLeft = false
+		if lookLeft == true:
+			$"Player Sprites".scale.x *= -1
+			lookLeft = false
 		
 func start_hiding():
 	can_move = false

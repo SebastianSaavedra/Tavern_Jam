@@ -12,7 +12,6 @@ var next_position_value: int = 0
 
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
-@onready var ray_cast = $RayCast2D
 
 func _ready():
 	chasing = false
@@ -21,14 +20,16 @@ func _ready():
 	next_position = positions[0]
 	
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(_delta: float):
 	
 	#Raycast
 	if playerIn == true:
 		var space = get_viewport().world_2d.direct_space_state
 		var result = space.intersect_ray(PhysicsRayQueryParameters2D.create(global_transform.origin, player.global_transform.origin))
 		
+		# Chasing
 		if result.collider == player:
+			print(player)
 			if playerSeen == false:
 				playerSeen = true
 				print("heyho")
@@ -39,21 +40,21 @@ func _physics_process(_delta: float) -> void:
 				$Timer2.stop()
 				$Timer.start()
 		else:
+			print ("not player")
 			if playerSeen == true:
 				playerSeen = false
 				$Timer2.start()
 				print("nah")
 	
-	if chasing == true:
-		# Chasing movement
-		var dir = to_local(nav_agent.get_next_path_position()).normalized()
-		velocity = dir * speed
+	var dir = to_local(nav_agent.get_next_path_position()).normalized()
+	velocity = dir * speed
+	if player.hiding == false || $Timer2.time_left == 0:
 		move_and_slide()
+	
+	if chasing == true:
+		pass
 	else:
 		#Patrol movement
-		var dir = to_local(nav_agent.get_next_path_position()).normalized()
-		velocity = dir * speed
-		move_and_slide()
 		if global_position.distance_to(next_position.global_position) <= 5:
 			if next_position_value < positions.size():
 				next_position = positions[next_position_value]
