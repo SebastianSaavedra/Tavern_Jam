@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://we3lwu5l0o8i"]
+[gd_scene load_steps=9 format=3 uid="uid://we3lwu5l0o8i"]
 
 [ext_resource type="Texture2D" uid="uid://dm8rqs3s1s2pv" path="res://Assets/Test/placeholdertilemap.png" id="1_2kvdi"]
+[ext_resource type="PackedScene" uid="uid://cp5tvn0550m6k" path="res://01_Sprites/HUD/in_game_menu.tscn" id="1_wla4o"]
 [ext_resource type="PackedScene" uid="uid://bvx4o8wbjcsgn" path="res://Scenes/TestGnome.tscn" id="2_66fat"]
 [ext_resource type="PackedScene" uid="uid://c03hm0bmfwurj" path="res://Scenes/enemy.tscn" id="3_w2j4k"]
 
@@ -47,6 +48,10 @@ collision_mask = 11
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.17, 1.17)
+
+[node name="In Game Menu" parent="Player/Camera2D" instance=ExtResource("1_wla4o")]
+visible = false
+light_mask = 0
 
 [node name="HideAreas" type="Node2D" parent="."]
 

@@ -58,7 +58,6 @@ one_shot = true
 position = Vector2(-6.10352e-05, 0)
 stream = ExtResource("4_xaq7b")
 autoplay = true
-stream_paused = true
 max_distance = 320.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

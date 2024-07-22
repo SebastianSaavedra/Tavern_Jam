@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c73oxn8b4tku7"]
+
+[ext_resource type="Script" path="res://01_Sprites/HUD/ChangeScene.gd" id="1_hi8oo"]
+[ext_resource type="Theme" uid="uid://bo2eiso1cinbp" path="res://01_Sprites/HUD/Button_theme.tres" id="3_vnudj"]
+[ext_resource type="FontFile" uid="uid://7ikbiryfpn0x" path="res://01_Sprites/HUD/alagard.ttf" id="4_d8l0n"]
+[ext_resource type="Texture2D" uid="uid://cp5ddrm7k10bm" path="res://01_Sprites/HUD/Positive_icon.png" id="6_om3ha"]
+
+[node name="Main Menu" type="Control"]
+light_mask = 2
+visibility_layer = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hi8oo")
+
+[node name="Main menú" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Main menú"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -65.0
+offset_right = 32.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 40)
+texture = ExtResource("6_om3ha")
+
+[node name="ButtonRetry" type="Button" parent="Main menú"]
+layout_mode = 2
+offset_left = -29.0
+offset_top = 49.0
+offset_right = 70.0
+offset_bottom = 125.0
+size_flags_horizontal = 4
+theme = ExtResource("3_vnudj")
+theme_override_fonts/font = ExtResource("4_d8l0n")
+text = "Play"
+
+[connection signal="pressed" from="Main menú/ButtonRetry" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Main menú/ButtonRetry" to="." method="_on_button_retry_pressed"]
+[connection signal="toggled" from="Main menú/ButtonRetry" to="." method="_on_button_retry_toggled"]
