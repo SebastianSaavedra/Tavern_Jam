@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://b62bv6m2fm7ow"]
+[gd_scene load_steps=78 format=3 uid="uid://b62bv6m2fm7ow"]
 
 [ext_resource type="Texture2D" uid="uid://bq6si4n1vfsyi" path="res://01_Sprites/Laftrache/laftrache_Attack-Sheet.png" id="1_y4c68"]
 [ext_resource type="Texture2D" uid="uid://b6e0hao6nijnx" path="res://01_Sprites/Laftrache/laftrache_death-Sheet.png" id="2_6yvsl"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c23rm26y4pwi" path="res://01_Sprites/Laftrache/laftrache_HAT.png" id="15_m14b1"]
 [ext_resource type="Texture2D" uid="uid://bmlp5a5ud2xs2" path="res://01_Sprites/Particles/particulas_daño-Sheet.png" id="15_q8vro"]
 [ext_resource type="Texture2D" uid="uid://djni5qhfnekex" path="res://01_Sprites/Particles/particulas_locura2-Sheet.png" id="16_llput"]
+[ext_resource type="Texture2D" uid="uid://blbihujavss0m" path="res://01_Sprites/Particles/particulas_sudor-Sheet.png" id="19_83v6h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tvics"]
 atlas = ExtResource("1_y4c68")
@@ -526,6 +527,26 @@ particles_anim_loop = true
 _data = [Vector2(0, 0.263736), 0.0, 0.0, 0, 0, Vector2(1, 0.516483), -4.45544, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ulpct"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_7hpg8"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.932584, 200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_1l0wl"]
+_data = [Vector2(0, 0.516483), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.483516), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_fwdtv"]
+offsets = PackedFloat32Array(0.653333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Player Sprites" type="Node2D"]
 
 [node name="player_BodySprite" type="AnimatedSprite2D" parent="."]
@@ -682,3 +703,22 @@ hue_variation_min = 1.0
 hue_variation_max = 1.0
 anim_speed_min = 2.0
 anim_speed_max = 2.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ulpct")
+position = Vector2(5, 4)
+amount = 3
+speed_scale = 2.0
+texture = ExtResource("19_83v6h")
+emission_shape = 3
+emission_rect_extents = Vector2(10, 1)
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 50)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+linear_accel_curve = SubResource("Curve_7hpg8")
+scale_amount_curve = SubResource("Curve_1l0wl")
+color_ramp = SubResource("Gradient_fwdtv")
+anim_speed_min = 1.0
+anim_speed_max = 1.0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c03hm0bmfwurj"]
+[gd_scene load_steps=7 format=3 uid="uid://c03hm0bmfwurj"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy.gd" id="1_4jori"]
 [ext_resource type="Texture2D" uid="uid://cci3qstcl0yca" path="res://icon.svg" id="2_4ysix"]
 [ext_resource type="PackedScene" uid="uid://3kycacu8y2q4" path="res://01_Sprites/enemy_sprites.tscn" id="3_gdp6d"]
+[ext_resource type="AudioStream" uid="uid://b6buqfgaiuvx" path="res://02_Sound/SFX/SFX_EnemyWalk.mp3" id="4_xaq7b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_00v24"]
 radius = 33.0151
@@ -52,6 +53,13 @@ one_shot = true
 
 [node name="Timer_Stun" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-6.10352e-05, 0)
+stream = ExtResource("4_xaq7b")
+autoplay = true
+stream_paused = true
+max_distance = 320.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
