@@ -115,8 +115,10 @@ func _on_area_2d_body_entered(body):
 	
 	if body == player:
 		playerIn = true
+		print("in")
 		
 		if playerSeen == true:
+			player.cannot_hide()
 			chasing = true
 			$Timer2.stop()
 			$Timer.start()
@@ -125,6 +127,7 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	
 	if body == player:
+		print("out")
 		playerIn = false
 		$Timer2.start()
 		body.slow_down()
