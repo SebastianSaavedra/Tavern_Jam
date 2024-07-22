@@ -1,0 +1,176 @@
+[gd_scene load_steps=18 format=3 uid="uid://c2syahekipl2a"]
+
+[ext_resource type="Texture2D" uid="uid://451iqp63wmqr" path="res://01_Sprites/Items/sopaipilla.png" id="1_rt74w"]
+[ext_resource type="Texture2D" uid="uid://j3f5stqhcfq6" path="res://01_Sprites/Items/kk-Sheet-export.png" id="2_y8ufx"]
+[ext_resource type="Texture2D" uid="uid://bjbpgo7b13eyp" path="res://01_Sprites/Items/Sopaipilla_Text.png" id="3_w6msb"]
+[ext_resource type="PackedScene" uid="uid://dbv0lits1wxv1" path="res://01_Sprites/Particles/item_particles.tscn" id="4_no0dk"]
+[ext_resource type="AudioStream" uid="uid://bwk5uecuhau1d" path="res://02_Sound/SFX/SFX_PlayerPickItem.mp3" id="5_d2th3"]
+
+[sub_resource type="Animation" id="Animation_2rnae"]
+resource_name = "KeyItem_anim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -5), Vector2(0, 5), Vector2(0, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xev10"]
+_data = {
+"KeyItem_anim": SubResource("Animation_2rnae")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frywd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0aji"]
+atlas = ExtResource("2_y8ufx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsvi3"]
+atlas = ExtResource("2_y8ufx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2ytc"]
+atlas = ExtResource("2_y8ufx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fho4b"]
+atlas = ExtResource("2_y8ufx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dw6i7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0aji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsvi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2ytc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fho4b")
+}],
+"loop": true,
+"name": &"kk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_j2isa"]
+resource_name = "kk_pop_up"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.2, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 2, 1, 1, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 0.25), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r8sgt"]
+_data = {
+"kk_pop_up": SubResource("Animation_j2isa")
+}
+
+[sub_resource type="Curve" id="Curve_f7xah"]
+_data = [Vector2(0, 0), 0.0, 3.61572, 0, 0, Vector2(0.5, 1), -4.24741, -4.24741, 0, 0, Vector2(1, 0), -1.61374, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ps8jw"]
+offsets = PackedFloat32Array(0, 0.52, 1)
+colors = PackedColorArray(1, 1, 1, 0.803922, 1, 1, 1, 1, 1, 1, 1, 0.215686)
+
+[node name="KeyItem_Sopaipilla" type="Node2D"]
+
+[node name="Container" type="Node2D" parent="."]
+position = Vector2(0, 0.0808444)
+rotation = -0.055826
+scale = Vector2(1.08199, 1.08199)
+
+[node name="Sprite2D" type="Sprite2D" parent="Container"]
+texture_filter = 1
+scale = Vector2(1, 1)
+texture = ExtResource("1_rt74w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_xev10")
+}
+autoplay = "KeyItem_anim"
+
+[node name="Area2D" type="Area2D" parent="Container"]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Area2D"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_frywd")
+
+[node name="PickUp_FX" type="Node2D" parent="."]
+visible = false
+
+[node name="kk" type="AnimatedSprite2D" parent="PickUp_FX"]
+sprite_frames = SubResource("SpriteFrames_dw6i7")
+animation = &"kk"
+autoplay = "kk"
+frame_progress = 0.937343
+speed_scale = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PickUp_FX/kk"]
+libraries = {
+"": SubResource("AnimationLibrary_r8sgt")
+}
+autoplay = "kk_pop_up"
+
+[node name="Text Particles" type="CPUParticles2D" parent="PickUp_FX"]
+texture_filter = 1
+amount = 1
+lifetime = 2.0
+one_shot = true
+texture = ExtResource("3_w6msb")
+gravity = Vector2(0, -75)
+scale_amount_curve = SubResource("Curve_f7xah")
+color_ramp = SubResource("Gradient_ps8jw")
+
+[node name="item Particles" parent="PickUp_FX" instance=ExtResource("4_no0dk")]
+
+[node name="pickSFX" type="AudioStreamPlayer" parent="PickUp_FX"]
+stream = ExtResource("5_d2th3")
+autoplay = true

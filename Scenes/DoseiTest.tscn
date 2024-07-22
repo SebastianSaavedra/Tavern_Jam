@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6eb1hy5io7bw"]
+[gd_scene load_steps=14 format=3 uid="uid://c6eb1hy5io7bw"]
 
 [ext_resource type="PackedScene" uid="uid://b62bv6m2fm7ow" path="res://01_Sprites/player_sprites.tscn" id="1_cj4sk"]
 [ext_resource type="PackedScene" uid="uid://3kycacu8y2q4" path="res://01_Sprites/enemy_sprites.tscn" id="2_gjc2t"]
 [ext_resource type="PackedScene" uid="uid://btle8vat7uo1x" path="res://01_Sprites/Particles/stun_particles.tscn" id="3_it03b"]
-[ext_resource type="PackedScene" uid="uid://dbv0lits1wxv1" path="res://01_Sprites/Particles/item_particles.tscn" id="4_g41uy"]
+[ext_resource type="PackedScene" uid="uid://dvqohqxsjba0b" path="res://03_PreFab/Items/key_item_completo.tscn" id="4_ccv0r"]
+[ext_resource type="PackedScene" uid="uid://6f3tnvoot0cv" path="res://03_PreFab/Items/key_item_copihue.tscn" id="5_a4fdj"]
+[ext_resource type="PackedScene" uid="uid://bx2f2rtuvg3l0" path="res://03_PreFab/Items/key_item_cultrun.tscn" id="6_i0yos"]
+[ext_resource type="PackedScene" uid="uid://dupq5nd7a27fm" path="res://03_PreFab/Items/key_item_huesillo.tscn" id="7_vqvhu"]
+[ext_resource type="PackedScene" uid="uid://cn1r3qt6k6y7t" path="res://03_PreFab/Items/key_item_lapislazuli.tscn" id="8_51wng"]
+[ext_resource type="PackedScene" uid="uid://bdc4spa7uf7x3" path="res://03_PreFab/Items/key_item_mote.tscn" id="9_ceo1c"]
+[ext_resource type="PackedScene" uid="uid://bhli6uwik2rin" path="res://03_PreFab/Items/key_item_nut_4_nut.tscn" id="10_ukew1"]
+[ext_resource type="PackedScene" uid="uid://cpx56mrha5qek" path="res://03_PreFab/Items/key_item_pinon.tscn" id="11_k8j2b"]
+[ext_resource type="PackedScene" uid="uid://c2syahekipl2a" path="res://03_PreFab/Items/key_item_sopaipilla.tscn" id="12_r5ih2"]
+[ext_resource type="PackedScene" uid="uid://bt78rilgarklh" path="res://03_PreFab/Items/key_item_trutruka.tscn" id="13_8c1j1"]
 
 [node name="DoseiTest" type="Node2D"]
 
@@ -19,4 +28,32 @@ position = Vector2(-47, 2)
 [node name="Stun Particles" parent="." instance=ExtResource("3_it03b")]
 visible = false
 
-[node name="item Particles" parent="." instance=ExtResource("4_g41uy")]
+[node name="KeyItem_Completo" parent="." instance=ExtResource("4_ccv0r")]
+position = Vector2(51, -99)
+
+[node name="KeyItem_Copihue" parent="." instance=ExtResource("5_a4fdj")]
+position = Vector2(51, -53)
+
+[node name="KeyItem_Cultrun" parent="." instance=ExtResource("6_i0yos")]
+position = Vector2(-95, -1)
+
+[node name="KeyItem_Huesillo" parent="." instance=ExtResource("7_vqvhu")]
+position = Vector2(-97, -94)
+
+[node name="KeyItem_Lapislazuli" parent="." instance=ExtResource("8_51wng")]
+position = Vector2(-91, -49)
+
+[node name="KeyItem_Mote" parent="." instance=ExtResource("9_ceo1c")]
+position = Vector2(-50, -98)
+
+[node name="KeyItem_Nut4Nut" parent="." instance=ExtResource("10_ukew1")]
+position = Vector2(-46, -49)
+
+[node name="KeyItem_Pinon" parent="." instance=ExtResource("11_k8j2b")]
+position = Vector2(0, -101)
+
+[node name="KeyItem_Sopaipilla" parent="." instance=ExtResource("12_r5ih2")]
+position = Vector2(0, -55)
+
+[node name="KeyItem_Trutruka" parent="." instance=ExtResource("13_8c1j1")]
+position = Vector2(49, 0)

@@ -20,8 +20,8 @@ point_count = 3
 [node name="item Particles" type="CPUParticles2D"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_6cxck")
-emitting = false
-amount = 10
+amount = 15
+lifetime = 2.0
 one_shot = true
 speed_scale = 2.0
 texture = ExtResource("1_hotdx")
