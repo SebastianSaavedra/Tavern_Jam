@@ -8,7 +8,7 @@
 radius = 33.0151
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7i0x0"]
-radius = 316.737
+radius = 450.0
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.4, 0.4)
@@ -41,14 +41,13 @@ process_callback = 0
 wait_time = 0.1
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 collision_mask = 3
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_7i0x0")
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Timer_Stun" type="Timer" parent="."]

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var max_speed := 100
-@export var speed_up_speed := 200
-var start_speed := 100
+@export var max_speed := 85
+@export var speed_up_speed := 150
+var start_speed := 85
 @export var acceleration := 50
 @export var friction := 40
 var can_move := true
@@ -21,6 +21,7 @@ var anim_in_progress := false
 @onready var anim_hat : AnimatedSprite2D = $"Player Sprites".get_node("PlayerHatSprite")
 @onready var anim_attack : AnimationPlayer = $"Player Sprites".get_node("Attack").get_node("Attack_Anim")
 @onready var magic_glow : PointLight2D = $"Player Sprites".get_node("Magic_ON").get_node("PointLight2D")
+@onready var my_collision : CollisionShape2D = $CollisionShape2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -129,6 +130,7 @@ func start_anim(timer):
 
 
 func start_hiding():
+	my_collision.disabled = true
 	can_attack = false
 	can_move = false
 	hiding = true
@@ -138,10 +140,14 @@ func start_hiding():
 	print("g'bye")
 		
 func stop_hiding():
+	my_collision.disabled = false
 	can_attack = true
 	anim_in_progress = false
 	can_move = true
 	hiding = false
+	
+	anim_body.play("Player_Idle")
+	anim_hat.play("Hat_Idle")
 	print("yo")
 		
 	

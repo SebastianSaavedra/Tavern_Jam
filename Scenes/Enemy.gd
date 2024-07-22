@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed = 35
+const speed = 78
 var lookLeft := false
 
 var playerIn: bool = false
