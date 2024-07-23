@@ -26,15 +26,21 @@ var in_hide_area := false
 var hiding := false
 
 var lookLeft := false
+var hat_lost := false
 
 var anim_in_progress := false
 @onready var anim_body : AnimatedSprite2D = $"Player Sprites".get_node("player_BodySprite")
 @onready var anim_hat : AnimatedSprite2D = $"Player Sprites".get_node("PlayerHatSprite")
 @onready var anim_attack : AnimationPlayer = $"Player Sprites".get_node("Attack").get_node("Attack_Anim")
+
 @onready var magic_glow : PointLight2D = $"Player Sprites".get_node("Magic_ON").get_node("PointLight2D")
 @onready var sweat_ptcl: CPUParticles2D = $"Player Sprites".get_node("CPUParticles2D")
 @onready var my_collision : CollisionShape2D = $CollisionShape2D
 @onready var timer_attacked := $Timer_Attacked
+
+@onready var hat_off_ptcl : CPUParticles2D = $"Player Sprites".get_node("hatOFF_particle")
+@onready var hit_ptcl : CPUParticles2D = $"Player Sprites".get_node("hit_particle")
+@onready var madness : Node2D = $"Player Sprites".get_node("locura")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -92,12 +98,14 @@ func _process(delta):
 	if direction != Vector2(0,0) && moving == false && anim_in_progress == false && hiding == false:
 		moving = true
 		anim_body.play("Player_Walk")
-		anim_hat.play("Hat_Walk")
+		if hat_lost == false:
+			anim_hat.play("Hat_Walk")
 		
 	if direction == Vector2(0,0) && moving == true && anim_in_progress == false && hiding == false:
 		moving = false
 		anim_body.play("Player_Idle")
-		anim_hat.play("Hat_Idle")
+		if hat_lost == false:
+			anim_hat.play("Hat_Idle")
 		
 	
 	# Hide Action
@@ -117,7 +125,8 @@ func _process(delta):
 		# Anims
 		anim_attack.play("AttackPlayer")
 		anim_body.play("Player_Attack")
-		anim_hat.play("Hat_Attack")
+		if hat_lost == false:
+			anim_hat.play("Hat_Attack")
 		start_anim(0.9)
 		
 	if $Timer_AttackCD.time_left == 0 && can_attack == false:
@@ -161,7 +170,8 @@ func stop_hiding():
 	hiding = false
 	
 	anim_body.play("Player_Idle")
-	anim_hat.play("Hat_Idle")
+	if hat_lost == false:
+		anim_hat.play("Hat_Idle")
 	print("yo")
 		
 	
@@ -195,10 +205,14 @@ func gain_key_item():
 	print(key_items_gained)
 
 func heal_dmg( heal ):
+	if hp <= 2:
+		madness.visible = false
+		print("se curo")
+		set_hp(hp + heal)
+		
 	if hp == 3:
-		return
-	print("se curo")
-	set_hp(hp + heal)
+		anim_hat.play("Hat_Idle")
+		hat_lost = false
 	
 func take_dmg( dmg ):
 	print("le pegaron")
@@ -206,6 +220,15 @@ func take_dmg( dmg ):
 	canBeAttacked = false
 	modulate.a = 0.5
 	set_hp(hp - dmg)
+	
+	hit_ptcl.emitting = true
+	if hp == 2:
+		hat_lost = true
+		hat_off_ptcl.emitting = true
+		anim_hat.play("Hat_Hidden")
+	elif hp == 1:
+		madness.visible = true
+	
 
 func set_hp( new_hp ):
 	emit_signal("OnHp_changed",new_hp)

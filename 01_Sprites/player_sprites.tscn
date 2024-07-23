@@ -560,7 +560,7 @@ autoplay = "Player_Idle"
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_n3otc")
-animation = &"Hat_Idle"
+animation = &"Hat_Hidden"
 autoplay = "Hat_Idle"
 
 [node name="Magic_ON" type="AnimatedSprite2D" parent="."]
@@ -670,7 +670,6 @@ anim_speed_min = 2.0
 anim_speed_max = 2.0
 
 [node name="hatOFF_particle" type="CPUParticles2D" parent="."]
-visible = false
 texture_filter = 1
 position = Vector2(0, -14)
 emitting = false
@@ -683,7 +682,6 @@ angular_velocity_max = 600.0
 scale_amount_curve = SubResource("Curve_o8mjy")
 
 [node name="hit_particle" type="CPUParticles2D" parent="."]
-visible = false
 material = SubResource("CanvasItemMaterial_ep2jt")
 position = Vector2(4, 13)
 emitting = false
@@ -705,7 +703,6 @@ anim_speed_min = 2.0
 anim_speed_max = 2.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-visible = false
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_ulpct")
 position = Vector2(5, 4)
