@@ -33,6 +33,12 @@ frame_progress = 0.594535
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_00v24")
 
+[node name="Area2D_vsPlayer" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D_hitplayer" type="CollisionShape2D" parent="Area2D_vsPlayer"]
+shape = SubResource("CircleShape2D_00v24")
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 radius = 51.05
 debug_enabled = true
@@ -60,6 +66,7 @@ stream = ExtResource("4_xaq7b")
 autoplay = true
 max_distance = 320.0
 
+[connection signal="body_entered" from="Area2D_vsPlayer" to="." method="_on_area_2d_vs_player_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -19,7 +19,6 @@ var player_attack_CD : Timer = null
 @onready var my_anim : AnimatedSprite2D = $"Enemy Sprites"
 @onready var my_particle : CPUParticles2D = $"Enemy Sprites".get_node("Stun Particles")
 
-
 func _ready():
 	chasing = false
 	$Timer.start()
@@ -52,7 +51,7 @@ func _physics_process(_delta: float):
 	
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
 	velocity = dir * speed
-	if player.hiding == false || $Timer2.time_left == 0:
+	if player and player.hiding == false || $Timer2.time_left == 0:
 		if stunned == false:
 			move_and_slide()
 			#Anim
@@ -108,7 +107,7 @@ func make_path() -> void:
 func _on_timer_timeout():
 	make_path()
 	
-	
+
 
 func _on_area_2d_body_entered(body):
 	can_be_stunned = true
@@ -141,4 +140,8 @@ func _on_timer_2_timeout():
 	playerSeen = false
 	player.slow_down()
 	player.Can_Hide()
-	
+
+func _on_area_2d_vs_player_body_entered(body):
+	if body == player:
+		if player.was_attacked():
+			player.take_dmg(1)

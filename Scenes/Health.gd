@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var hp = 5 : set = set_hp
+@export var hp = 3 : set = set_hp
 
 signal OnHp_changed
 signal OnDied
@@ -8,6 +8,9 @@ signal OnDied
 func _ready():
 	pass
 
+func heal_dmg( heal ):
+	set_hp(hp + heal)
+	
 func take_dmg( dmg ):
 	set_hp(hp - dmg)
 

@@ -12,6 +12,7 @@ func _ready():
 
 func _on_area_2d_body_entered(body):
 	if body == player && col_area.disabled == false:
+		player.heal_dmg(1)
 		player.gain_key_item()
 		
 		container.visible = false

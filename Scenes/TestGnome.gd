@@ -8,6 +8,15 @@ var start_speed := 85
 var can_move := true
 var moving := false
 
+var canBeAttacked = true : get = was_attacked
+
+# vida #
+@export var hp = 3 : set = set_hp
+
+signal OnHp_changed
+signal OnDied
+# vida #
+
 var key_items_gained : int = 0
 
 var can_attack := false
@@ -25,6 +34,7 @@ var anim_in_progress := false
 @onready var magic_glow : PointLight2D = $"Player Sprites".get_node("Magic_ON").get_node("PointLight2D")
 @onready var sweat_ptcl: CPUParticles2D = $"Player Sprites".get_node("CPUParticles2D")
 @onready var my_collision : CollisionShape2D = $CollisionShape2D
+@onready var timer_attacked := $Timer_Attacked
 
 
 # Called when the node enters the scene tree for the first time.
@@ -42,7 +52,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	#Input direction to movement
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	if direction.x:
@@ -184,3 +193,35 @@ func _on_area_2d_body_exited(body):
 func gain_key_item():
 	key_items_gained += 1
 	print(key_items_gained)
+
+func heal_dmg( heal ):
+	if hp == 3:
+		return
+	print("se curo")
+	set_hp(hp + heal)
+	
+func take_dmg( dmg ):
+	print("le pegaron")
+	timer_attacked.start()
+	canBeAttacked = false
+	modulate.a = 0.5
+	set_hp(hp - dmg)
+
+func set_hp( new_hp ):
+	emit_signal("OnHp_changed",new_hp)
+	hp = new_hp
+	print(hp)
+	if hp <= 0:
+		die()
+
+func die():
+	emit_signal("OnDied")
+	print("Murio")
+	# queue_free() # Documentation: Queues this node to be deleted at the end of the current frame. When deleted, all of its children are deleted as well, and all references to the node and its children become invalid..
+
+func was_attacked():
+	return canBeAttacked
+
+func _on_timer_attacked_timeout():
+	canBeAttacked = true
+	modulate.a = 1

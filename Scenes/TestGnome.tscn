@@ -23,3 +23,8 @@ one_shot = true
 
 [node name="Timer_Anim" type="Timer" parent="."]
 one_shot = true
+
+[node name="Timer_Attacked" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer_Attacked" to="." method="_on_timer_attacked_timeout"]
