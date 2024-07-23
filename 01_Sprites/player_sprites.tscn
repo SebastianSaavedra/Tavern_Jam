@@ -553,7 +553,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 texture_filter = 1
 texture_repeat = 1
 sprite_frames = SubResource("SpriteFrames_xhp4p")
-animation = &"Player_Hit"
+animation = &"Player_Idle"
 autoplay = "Player_Idle"
 
 [node name="PlayerHatSprite" type="AnimatedSprite2D" parent="."]
@@ -585,7 +585,7 @@ libraries = {
 autoplay = "Glow_magic_On"
 
 [node name="Attack" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.215686)
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(12, -18)
@@ -594,7 +594,6 @@ scale = Vector2(1e-05, 1e-05)
 [node name="sprite02" type="Sprite2D" parent="Attack"]
 texture_filter = 1
 texture_repeat = 1
-rotation = -6.28319
 texture = ExtResource("11_lpntr")
 
 [node name="Sprite01" type="Sprite2D" parent="Attack"]
@@ -604,7 +603,6 @@ texture = ExtResource("12_jp4a7")
 
 [node name="PointLight2D" type="PointLight2D" parent="Attack"]
 position = Vector2(-6, -5)
-rotation = 6.28319
 color = Color(0.13455, 0.65852, 0.217093, 1)
 texture = ExtResource("10_25n8c")
 texture_scale = 0.2
