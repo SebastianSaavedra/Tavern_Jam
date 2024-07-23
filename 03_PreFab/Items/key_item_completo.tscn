@@ -123,9 +123,8 @@ colors = PackedColorArray(1, 1, 1, 0.803922, 1, 1, 1, 1, 1, 1, 1, 0.215686)
 script = ExtResource("1_nnqki")
 
 [node name="Container" type="Node2D" parent="."]
-position = Vector2(0, -2.62056)
-rotation = -0.0165564
-scale = Vector2(1.05949, 1.05949)
+position = Vector2(0, -5)
+rotation = 0.0872665
 
 [node name="Sprite2D" type="Sprite2D" parent="Container"]
 texture_filter = 1
@@ -147,6 +146,7 @@ shape = SubResource("RectangleShape2D_frywd")
 visible = false
 
 [node name="kk" type="AnimatedSprite2D" parent="PickUp_FX"]
+scale = Vector2(1e-05, 1e-05)
 sprite_frames = SubResource("SpriteFrames_dw6i7")
 animation = &"kk"
 autoplay = "kk"
@@ -161,6 +161,7 @@ autoplay = "kk_pop_up"
 
 [node name="Text Particles" type="CPUParticles2D" parent="PickUp_FX"]
 texture_filter = 1
+emitting = false
 amount = 1
 lifetime = 2.0
 one_shot = true
@@ -173,6 +174,5 @@ color_ramp = SubResource("Gradient_ps8jw")
 
 [node name="pickSFX" type="AudioStreamPlayer" parent="PickUp_FX"]
 stream = ExtResource("5_rowef")
-autoplay = true
 
 [connection signal="body_entered" from="Container/Area2D" to="." method="_on_area_2d_body_entered"]

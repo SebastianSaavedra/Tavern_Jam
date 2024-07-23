@@ -161,6 +161,7 @@ autoplay = "kk_pop_up"
 
 [node name="Text Particles" type="CPUParticles2D" parent="PickUp_FX"]
 texture_filter = 1
+emitting = false
 amount = 1
 lifetime = 2.0
 one_shot = true

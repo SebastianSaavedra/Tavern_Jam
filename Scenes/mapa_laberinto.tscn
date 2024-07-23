@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://we3lwu5l0o8i"]
+[gd_scene load_steps=11 format=3 uid="uid://we3lwu5l0o8i"]
 
 [ext_resource type="Texture2D" uid="uid://dm8rqs3s1s2pv" path="res://Assets/Test/placeholdertilemap.png" id="1_2kvdi"]
 [ext_resource type="PackedScene" path="res://01_Sprites/HUD/in_game_menu.tscn" id="1_wla4o"]
 [ext_resource type="PackedScene" uid="uid://bvx4o8wbjcsgn" path="res://Scenes/TestGnome.tscn" id="2_66fat"]
 [ext_resource type="PackedScene" uid="uid://c03hm0bmfwurj" path="res://Scenes/enemy.tscn" id="3_w2j4k"]
 [ext_resource type="PackedScene" uid="uid://dvqohqxsjba0b" path="res://03_PreFab/Items/key_item_completo.tscn" id="5_l6jc1"]
+[ext_resource type="PackedScene" uid="uid://6f3tnvoot0cv" path="res://03_PreFab/Items/key_item_copihue.tscn" id="6_btia7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mfd3u"]
 vertices = PackedVector2Array(15, 15, -15, 15, -15, -15, 15, -15)
@@ -272,6 +273,10 @@ scale = Vector2(0.4, 0.4)
 
 [node name="KeyItem_Completo" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_l6jc1")]
 position = Vector2(3, -156)
+player = NodePath("../Player")
+
+[node name="KeyItem_Copihue" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_btia7")]
+position = Vector2(-70, -85)
 player = NodePath("../Player")
 
 [connection signal="body_entered" from="HideAreas/Patio_De_Comida" to="Player" method="_on_area_2d_body_entered"]
