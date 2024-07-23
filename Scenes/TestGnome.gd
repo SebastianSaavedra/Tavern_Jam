@@ -8,6 +8,8 @@ var start_speed := 85
 var can_move := true
 var moving := false
 
+var key_items_gained : int = 0
+
 var can_attack := false
 
 var can_hide := true
@@ -21,6 +23,7 @@ var anim_in_progress := false
 @onready var anim_hat : AnimatedSprite2D = $"Player Sprites".get_node("PlayerHatSprite")
 @onready var anim_attack : AnimationPlayer = $"Player Sprites".get_node("Attack").get_node("Attack_Anim")
 @onready var magic_glow : PointLight2D = $"Player Sprites".get_node("Magic_ON").get_node("PointLight2D")
+@onready var sweat_ptcl: CPUParticles2D = $"Player Sprites".get_node("CPUParticles2D")
 @onready var my_collision : CollisionShape2D = $CollisionShape2D
 
 
@@ -32,6 +35,8 @@ func _ready():
 	can_hide = true
 	in_hide_area = false
 	hiding = false
+	
+	sweat_ptcl.visible = false
 	
 
 
@@ -161,9 +166,11 @@ func Can_Hide():
 		
 func speed_up():
 	max_speed = speed_up_speed
+	sweat_ptcl.visible = true
 	
 func slow_down():
 	max_speed = start_speed
+	sweat_ptcl.visible = false
 
 
 func _on_area_2d_body_entered(body):
@@ -173,3 +180,7 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	in_hide_area = false
 	print("no h area")
+
+func gain_key_item():
+	key_items_gained += 1
+	print(key_items_gained)

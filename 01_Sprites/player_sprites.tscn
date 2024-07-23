@@ -705,6 +705,7 @@ anim_speed_min = 2.0
 anim_speed_max = 2.0
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_ulpct")
 position = Vector2(5, 4)

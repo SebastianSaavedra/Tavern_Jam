@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bt78rilgarklh"]
+[gd_scene load_steps=19 format=3 uid="uid://bt78rilgarklh"]
 
 [ext_resource type="Texture2D" uid="uid://byaqcspn5qfpm" path="res://01_Sprites/Items/trutruka.png" id="1_aeyxp"]
+[ext_resource type="Script" path="res://03_PreFab/Items/key_item.gd" id="1_ye88j"]
 [ext_resource type="Texture2D" uid="uid://j3f5stqhcfq6" path="res://01_Sprites/Items/kk-Sheet-export.png" id="2_wmwgm"]
 [ext_resource type="Texture2D" uid="uid://c0h6qu61qqn1e" path="res://01_Sprites/Items/Trutruka_Text.png" id="3_vayep"]
 [ext_resource type="PackedScene" uid="uid://dbv0lits1wxv1" path="res://01_Sprites/Particles/item_particles.tscn" id="4_dvmjf"]
@@ -119,6 +120,7 @@ offsets = PackedFloat32Array(0, 0.52, 1)
 colors = PackedColorArray(1, 1, 1, 0.803922, 1, 1, 1, 1, 1, 1, 1, 0.215686)
 
 [node name="KeyItem_Trutruka" type="Node2D"]
+script = ExtResource("1_ye88j")
 
 [node name="Container" type="Node2D" parent="."]
 position = Vector2(0, 0.0808444)
@@ -127,7 +129,6 @@ scale = Vector2(1.08199, 1.08199)
 
 [node name="Sprite2D" type="Sprite2D" parent="Container"]
 texture_filter = 1
-scale = Vector2(1, 1)
 texture = ExtResource("1_aeyxp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Container/Sprite2D"]
@@ -137,7 +138,6 @@ libraries = {
 autoplay = "KeyItem_anim"
 
 [node name="Area2D" type="Area2D" parent="Container"]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Area2D"]
 scale = Vector2(1.5, 1.5)
@@ -175,3 +175,5 @@ color_ramp = SubResource("Gradient_ps8jw")
 [node name="pickSFX" type="AudioStreamPlayer" parent="PickUp_FX"]
 stream = ExtResource("5_3bcek")
 autoplay = true
+
+[connection signal="body_entered" from="Container/Area2D" to="." method="_on_area_2d_body_entered"]
