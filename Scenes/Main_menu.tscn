@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c73oxn8b4tku7"]
+[gd_scene load_steps=5 format=3 uid="uid://b85clku2na8wm"]
 
 [ext_resource type="Script" path="res://01_Sprites/HUD/ChangeScene.gd" id="1_hi8oo"]
-[ext_resource type="Theme" uid="uid://bo2eiso1cinbp" path="res://01_Sprites/HUD/Button_theme.tres" id="3_vnudj"]
+[ext_resource type="Theme" path="res://01_Sprites/HUD/Button_theme.tres" id="3_vnudj"]
 [ext_resource type="FontFile" uid="uid://7ikbiryfpn0x" path="res://01_Sprites/HUD/alagard.ttf" id="4_d8l0n"]
 [ext_resource type="Texture2D" uid="uid://cp5ddrm7k10bm" path="res://01_Sprites/HUD/Positive_icon.png" id="6_om3ha"]
 
@@ -57,6 +57,6 @@ theme = ExtResource("3_vnudj")
 theme_override_fonts/font = ExtResource("4_d8l0n")
 text = "Play"
 
-[connection signal="pressed" from="Main menú/ButtonRetry" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Main menú/ButtonRetry" to="." method="_on_button_retry_pressed"]
+[connection signal="pressed" from="Main menú/ButtonRetry" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="Main menú/ButtonRetry" to="." method="_on_button_retry_toggled"]

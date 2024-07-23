@@ -40,7 +40,10 @@ scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_00v24")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+navigation_layers = 3
 radius = 51.05
+avoidance_layers = 3
+avoidance_mask = 3
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
