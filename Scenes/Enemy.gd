@@ -19,6 +19,8 @@ var player_attack_CD : Timer = null
 @onready var my_anim : AnimatedSprite2D = $"Enemy Sprites"
 @onready var my_particle : CPUParticles2D = $"Enemy Sprites".get_node("Stun Particles")
 
+@onready var sfx_walk : AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 func _ready():
 	chasing = false
 	$Timer.start()
@@ -54,6 +56,8 @@ func _physics_process(_delta: float):
 	if player and player.hiding == false || $Timer2.time_left == 0:
 		if stunned == false:
 			move_and_slide()
+			if sfx_walk.playing == false:
+				sfx_walk.playing = true
 			#Anim
 			if my_anim.animation != "Enemy_Walk":
 				my_anim.play("Enemy_Walk")
@@ -61,11 +65,15 @@ func _physics_process(_delta: float):
 		else:
 			my_anim.play("Enemy_Stun")
 			my_particle.visible = true
+			if sfx_walk.playing == true:
+				sfx_walk.playing = false
 			
 	else:
 		if my_anim.animation != "Enemy_Idle":
 			my_anim.play("Enemy_Idle")
 			my_particle.visible = false
+			
+			sfx_walk.playing = false
 	
 	if dir.x <= -0.15:
 		if lookLeft == false:

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var max_speed := 85
+@export var max_speed := 87
 @export var speed_up_speed := 150
-var start_speed := 85
+var start_speed := 87
 @export var acceleration := 50
 @export var friction := 40
 var can_move := true
@@ -21,7 +21,7 @@ var key_items_gained : int = 0
 
 var can_attack := false
 
-var can_hide := true
+var can_hide := false
 var in_hide_area := false
 var hiding := false
 
@@ -41,6 +41,12 @@ var anim_in_progress := false
 @onready var hat_off_ptcl : CPUParticles2D = $"Player Sprites".get_node("hatOFF_particle")
 @onready var hit_ptcl : CPUParticles2D = $"Player Sprites".get_node("hit_particle")
 @onready var madness : Node2D = $"Player Sprites".get_node("locura")
+
+
+@onready var sfx_attack : AudioStreamPlayer2D = $SFXs.get_node("sfx_PlayerAttack")
+@onready var sfx_death : AudioStreamPlayer2D = $SFXs.get_node("sfx_PlayerDeath")
+@onready var sfx_hit : AudioStreamPlayer2D = $SFXs.get_node("sfx_PlayerHit")
+@onready var sfx_mad : AudioStreamPlayer2D = $SFXs.get_node("sfx_PlayerMad")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -117,11 +123,13 @@ func _process(delta):
 		
 	
 	#Attack Action
-	if Input.is_action_just_pressed("Attack") && $Timer_AttackCD.time_left == 0:
+	if Input.is_action_just_pressed("Attack") && can_attack == true:
 		magic_glow.enabled = false
 		$Timer_AttackCD.start()
 		stop_hiding()
 		can_attack = false
+		sfx_attack.play()
+		
 		# Anims
 		anim_attack.play("AttackPlayer")
 		anim_body.play("Player_Attack")
@@ -205,6 +213,8 @@ func gain_key_item():
 	print(key_items_gained)
 
 func heal_dmg( heal ):
+	sfx_mad.stop()
+	
 	if hp <= 2:
 		madness.visible = false
 		print("se curo")
@@ -221,6 +231,9 @@ func take_dmg( dmg ):
 	modulate.a = 0.5
 	set_hp(hp - dmg)
 	
+	if hp >= 1:
+		sfx_hit.play()
+	
 	hit_ptcl.emitting = true
 	if hp == 2:
 		hat_lost = true
@@ -228,6 +241,8 @@ func take_dmg( dmg ):
 		anim_hat.play("Hat_Hidden")
 	elif hp == 1:
 		madness.visible = true
+		sfx_mad.play()
+		
 	
 
 func set_hp( new_hp ):
@@ -238,6 +253,7 @@ func set_hp( new_hp ):
 		die()
 
 func die():
+	sfx_death.play()
 	emit_signal("OnDied")
 	print("Murio")
 	# queue_free() # Documentation: Queues this node to be deleted at the end of the current frame. When deleted, all of its children are deleted as well, and all references to the node and its children become invalid..
