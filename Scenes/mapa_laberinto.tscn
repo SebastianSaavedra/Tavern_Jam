@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://we3lwu5l0o8i"]
 
-[ext_resource type="PackedScene" uid="uid://bl8vicfcof8bl" path="res://01_Sprites/HUD/in_game_menu.tscn" id="1_wla4o"]
+[ext_resource type="PackedScene" uid="uid://cp5tvn0550m6k" path="res://01_Sprites/HUD/in_game_menu.tscn" id="1_wla4o"]
 [ext_resource type="TileSet" uid="uid://b285kkcf33ch7" path="res://Scenes/tilemap_Laftrache.tres" id="2_6mx3l"]
 [ext_resource type="PackedScene" uid="uid://bvx4o8wbjcsgn" path="res://Scenes/TestGnome.tscn" id="2_66fat"]
 [ext_resource type="PackedScene" uid="uid://c03hm0bmfwurj" path="res://Scenes/enemy.tscn" id="3_w2j4k"]
@@ -29,7 +29,7 @@ tile_set = ExtResource("2_6mx3l")
 format = 2
 layer_0/tile_data = PackedInt32Array(65534, 720896, 11, -2, 720896, 11, -65538, 720896, 11, 131070, 720896, 11, 131069, 655360, 11, 65533, 655360, 11, -3, 655360, 11, -65539, 655360, 11, -131075, 655360, 11, -131074, 720896, 11, -196611, 655360, 11, -262147, 655360, 11, -262146, 720896, 11, -196610, 720896, 11, -327682, 720896, 11, -393218, 720896, 11, -393219, 720896, 11, -327683, 720896, 11, -393220, 720896, 11, -393221, 720896, 11, -327684, 720896, 11, -458756, 720896, 11, -327685, 720896, 11, -458757, 720896, 11, -524293, 720896, 11, -524292, 720896, 11, -589828, 720896, 11, -589829, 720896, 11, -655364, 720896, 11, -655365, 720896, 11, -720900, 720896, 11, -720901, 720896, 11, -786437, 720896, 11, -786436, 720896, 11, -851972, 720896, 11, -851973, 720896, 11, -917509, 720896, 11, -917508, 720896, 11, -983044, 720896, 11, -983045, 720896, 11, -1048581, 720896, 11, -1048580, 720896, 11, -1114116, 720896, 11, -1114117, 720896, 11, -1179652, 720896, 11, -1179653, 720896, 11, -1245189, 720896, 11, -1245188, 720896, 11, -1310724, 720896, 11, -1310725, 720896, 11, -1376261, 720896, 11, -1376260, 720896, 11, -1441796, 720896, 11, -1441797, 720896, 11, -1507332, 720896, 11, -1507333, 720896, 11, -1572869, 720896, 11, -1572868, 720896, 11, -1572870, 720896, 11, -1507334, 720896, 11, -1638407, 720896, 11, -1572871, 720896, 11, -1703943, 720896, 11, -1769479, 720896, 11, -1835015, 720896, 11, -1769478, 720896, 11, -1703942, 720896, 11, -1638406, 720896, 11, -1835014, 720896, 11, -1900550, 720896, 11, -1966086, 720896, 11, -2031622, 720896, 11, -2097158, 720896, 11, -2162694, 720896, 11, -2228230, 720896, 11, -2293766, 720896, 11, -2293765, 720896, 11, -2228229, 720896, 11, -2293764, 720896, 11, -2228228, 720896, 11, -2293767, 720896, 11, -2228231, 720896, 11, -2162695, 720896, 11, -2097159, 720896, 11, -2031623, 720896, 11, -1966087, 720896, 11, -1900551, 720896, 11, -1507335, 720896, 11, -2359300, 720896, 11, -2359301, 720896, 11, -2424836, 720896, 11, -2424837, 720896, 11, -2490373, 720896, 11, -2490372, 720896, 11, -2555908, 720896, 11, -2555909, 720896, 11, -2621444, 720896, 11, -2621445, 720896, 11)
 
-[node name="TileMap_Bottom2" type="TileMap" parent="Tilemaps"]
+[node name="TileMap_Notransitable" type="TileMap" parent="Tilemaps"]
 texture_filter = 1
 tile_set = ExtResource("2_6mx3l")
 format = 2
@@ -98,261 +98,78 @@ player = NodePath("../../Player")
 
 [node name="HideAreas" type="Node2D" parent="."]
 
-[node name="Patio_De_Comida" type="Area2D" parent="HideAreas"]
+[node name="HideAreas" type="Area2D" parent="HideAreas"]
 position = Vector2(-205.363, -41.9038)
 collision_layer = 9
 collision_mask = 11
 
-[node name="Hide_Area3" type="CollisionShape2D" parent="HideAreas/Patio_De_Comida"]
+[node name="Hide_Area3" type="CollisionShape2D" parent="HideAreas/HideAreas"]
 position = Vector2(141.363, -278.096)
 scale = Vector2(0.65, 0.65)
 shape = SubResource("CircleShape2D_icixj")
 debug_color = Color(0.674249, 0.502428, 0.19038, 0.42)
 
-[node name="Hide_Area4" type="CollisionShape2D" parent="HideAreas/Patio_De_Comida"]
-position = Vector2(517.363, 280.904)
-shape = SubResource("CircleShape2D_icixj")
-debug_color = Color(0.674249, 0.502428, 0.19038, 0.42)
-
-[node name="Hide_Area5" type="CollisionShape2D" parent="HideAreas/Patio_De_Comida"]
-position = Vector2(619.363, -323.096)
-shape = SubResource("CircleShape2D_icixj")
-debug_color = Color(0.674249, 0.502428, 0.19038, 0.42)
-
-[node name="Hide_Area6" type="CollisionShape2D" parent="HideAreas/Patio_De_Comida"]
-position = Vector2(1217.36, 284.904)
-shape = SubResource("CircleShape2D_icixj")
-debug_color = Color(0.674249, 0.502428, 0.19038, 0.42)
-
-[node name="Hide_Area7" type="CollisionShape2D" parent="HideAreas/Patio_De_Comida"]
-position = Vector2(1533.36, -422.096)
-shape = SubResource("CircleShape2D_icixj")
-debug_color = Color(0.674249, 0.502428, 0.19038, 0.42)
-
-[node name="Hide_Area8" type="CollisionShape2D" parent="HideAreas/Patio_De_Comida"]
-position = Vector2(1709.36, -58.0962)
-shape = SubResource("CircleShape2D_icixj")
-debug_color = Color(0.674249, 0.502428, 0.19038, 0.42)
-
-[node name="Cancha" type="Area2D" parent="HideAreas"]
-position = Vector2(-205.363, -41.9038)
-collision_layer = 9
-collision_mask = 11
-
-[node name="Hide_Area1" type="CollisionShape2D" parent="HideAreas/Cancha"]
-position = Vector2(-31.637, -5.0962)
-shape = SubResource("CircleShape2D_icixj")
-debug_color = Color(0.674249, 0.502428, 0.19038, 0.42)
-
-[node name="Hide_Area2" type="CollisionShape2D" parent="HideAreas/Cancha"]
-position = Vector2(-1119.64, 133.904)
-shape = SubResource("CircleShape2D_icixj")
-debug_color = Color(0.674249, 0.502428, 0.19038, 0.42)
-
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Cancha" type="Node2D" parent="Enemies"]
+[node name="Enemy5" type="Node2D" parent="Enemies"]
+position = Vector2(-47, -1054)
 
-[node name="Enemy1" type="Node2D" parent="Enemies/Cancha"]
-position = Vector2(42, -535)
-
-[node name="Node2D" type="Node2D" parent="Enemies/Cancha/Enemy1"]
-position = Vector2(155, -16)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D2" type="Node2D" parent="Enemies/Cancha/Enemy1"]
-position = Vector2(-7, 115)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D3" type="Node2D" parent="Enemies/Cancha/Enemy1"]
-position = Vector2(137, 115)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D4" type="Node2D" parent="Enemies/Cancha/Enemy1"]
-position = Vector2(47, -50)
-scale = Vector2(0.4, 0.4)
-
-[node name="Enemy5" type="Node2D" parent="Enemies/Cancha"]
-position = Vector2(-67, -1047)
-
-[node name="Enemy" parent="Enemies/Cancha/Enemy5" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
+[node name="Enemy" parent="Enemies/Enemy5" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
 positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3"), NodePath("../Node2D4")]
-player = NodePath("../../../../Player")
+player = NodePath("../../../Player")
 
-[node name="Node2D" type="Node2D" parent="Enemies/Cancha/Enemy5"]
+[node name="Node2D" type="Node2D" parent="Enemies/Enemy5"]
 position = Vector2(4, -119)
 scale = Vector2(0.4, 0.4)
 
-[node name="Node2D2" type="Node2D" parent="Enemies/Cancha/Enemy5"]
+[node name="Node2D2" type="Node2D" parent="Enemies/Enemy5"]
 position = Vector2(-41, -116)
 scale = Vector2(0.4, 0.4)
 
-[node name="Node2D3" type="Node2D" parent="Enemies/Cancha/Enemy5"]
+[node name="Node2D3" type="Node2D" parent="Enemies/Enemy5"]
 position = Vector2(-39, 325)
 scale = Vector2(0.4, 0.4)
 
-[node name="Node2D4" type="Node2D" parent="Enemies/Cancha/Enemy5"]
+[node name="Node2D4" type="Node2D" parent="Enemies/Enemy5"]
 position = Vector2(-1, 321)
 scale = Vector2(0.4, 0.4)
 
-[node name="Enemy6" type="Node2D" parent="Enemies/Cancha"]
+[node name="Enemy6" type="Node2D" parent="Enemies"]
 position = Vector2(218, -823)
 
-[node name="Enemy" parent="Enemies/Cancha/Enemy6" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
+[node name="Enemy" parent="Enemies/Enemy6" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
 positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3"), NodePath("../Node2D4")]
-player = NodePath("../../../../Player")
+player = NodePath("../../../Player")
 
-[node name="Node2D" type="Node2D" parent="Enemies/Cancha/Enemy6"]
+[node name="Node2D" type="Node2D" parent="Enemies/Enemy6"]
 position = Vector2(4, 79)
 scale = Vector2(0.4, 0.4)
 
-[node name="Node2D2" type="Node2D" parent="Enemies/Cancha/Enemy6"]
+[node name="Node2D2" type="Node2D" parent="Enemies/Enemy6"]
 position = Vector2(-41, 71)
 scale = Vector2(0.4, 0.4)
 
-[node name="Node2D3" type="Node2D" parent="Enemies/Cancha/Enemy6"]
+[node name="Node2D3" type="Node2D" parent="Enemies/Enemy6"]
 position = Vector2(-39, -368)
 scale = Vector2(0.4, 0.4)
 
-[node name="Node2D4" type="Node2D" parent="Enemies/Cancha/Enemy6"]
+[node name="Node2D4" type="Node2D" parent="Enemies/Enemy6"]
 position = Vector2(26, -362)
 scale = Vector2(0.4, 0.4)
 
-[node name="Enemy2" type="Node2D" parent="Enemies/Cancha"]
-position = Vector2(-712, -175)
+[node name="Enemy7" type="Node2D" parent="Enemies"]
+position = Vector2(-97, -527)
 
-[node name="Enemy" parent="Enemies/Cancha/Enemy2" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
-position = Vector2(2, -88)
-positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3"), NodePath("../Node2D4")]
-player = NodePath("../../../../Player")
-
-[node name="Node2D" type="Node2D" parent="Enemies/Cancha/Enemy2"]
-position = Vector2(4, -119)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D2" type="Node2D" parent="Enemies/Cancha/Enemy2"]
-position = Vector2(-41, -116)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D3" type="Node2D" parent="Enemies/Cancha/Enemy2"]
-position = Vector2(-37, 102)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D4" type="Node2D" parent="Enemies/Cancha/Enemy2"]
-position = Vector2(1, 98)
-scale = Vector2(0.4, 0.4)
-
-[node name="Enemy3" type="Node2D" parent="Enemies/Cancha"]
-position = Vector2(-1049, -175)
-
-[node name="Enemy" parent="Enemies/Cancha/Enemy3" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
-positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3"), NodePath("../Node2D4")]
-player = NodePath("../../../../Player")
-
-[node name="Node2D" type="Node2D" parent="Enemies/Cancha/Enemy3"]
-position = Vector2(4, -119)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D2" type="Node2D" parent="Enemies/Cancha/Enemy3"]
-position = Vector2(-41, -116)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D3" type="Node2D" parent="Enemies/Cancha/Enemy3"]
-position = Vector2(-37, 102)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D4" type="Node2D" parent="Enemies/Cancha/Enemy3"]
-position = Vector2(1, 98)
-scale = Vector2(0.4, 0.4)
-
-[node name="Enemy4" type="Node2D" parent="Enemies/Cancha"]
-position = Vector2(-717, 157)
-
-[node name="Enemy" parent="Enemies/Cancha/Enemy4" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
-position = Vector2(-9, -52)
-positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3"), NodePath("../Node2D4")]
-player = NodePath("../../../../Player")
-
-[node name="Node2D" type="Node2D" parent="Enemies/Cancha/Enemy4"]
-position = Vector2(1, -115)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D2" type="Node2D" parent="Enemies/Cancha/Enemy4"]
-position = Vector2(-348, -117)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D3" type="Node2D" parent="Enemies/Cancha/Enemy4"]
-position = Vector2(-353, 91)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D4" type="Node2D" parent="Enemies/Cancha/Enemy4"]
-position = Vector2(1, 98)
-scale = Vector2(0.4, 0.4)
-
-[node name="Patio_de_Comida" type="Node2D" parent="Enemies"]
-
-[node name="Enemy5" type="Node2D" parent="Enemies/Patio_de_Comida"]
-position = Vector2(1118, -187)
-
-[node name="Enemy" parent="Enemies/Patio_de_Comida/Enemy5" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
-position = Vector2(-79, -53)
-positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3"), NodePath("../Node2D4")]
-player = NodePath("../../../../Player")
-
-[node name="Node2D" type="Node2D" parent="Enemies/Patio_de_Comida/Enemy5"]
-position = Vector2(-63, 192)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D2" type="Node2D" parent="Enemies/Patio_de_Comida/Enemy5"]
-position = Vector2(-341, 193)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D3" type="Node2D" parent="Enemies/Patio_de_Comida/Enemy5"]
-position = Vector2(-341, -374)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D4" type="Node2D" parent="Enemies/Patio_de_Comida/Enemy5"]
-position = Vector2(-70, -371)
-scale = Vector2(0.4, 0.4)
-
-[node name="Enemy6" type="Node2D" parent="Enemies/Patio_de_Comida"]
-position = Vector2(1361, 240)
-
-[node name="Enemy" parent="Enemies/Patio_de_Comida/Enemy6" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
-position = Vector2(-9, -52)
+[node name="Enemy" parent="Enemies/Enemy7" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
 positions = [NodePath("../Node2D"), NodePath("../Node2D2")]
-player = NodePath("../../../../Player")
+player = NodePath("../../../Player")
 
-[node name="Node2D" type="Node2D" parent="Enemies/Patio_de_Comida/Enemy6"]
-position = Vector2(301, -46)
+[node name="Node2D" type="Node2D" parent="Enemies/Enemy7"]
+position = Vector2(4, -3.00001)
 scale = Vector2(0.4, 0.4)
 
-[node name="Node2D2" type="Node2D" parent="Enemies/Patio_de_Comida/Enemy6"]
-position = Vector2(-255, -56)
-scale = Vector2(0.4, 0.4)
-
-[node name="Enemy7" type="Node2D" parent="Enemies/Patio_de_Comida"]
-position = Vector2(1927, -279)
-
-[node name="Enemy" parent="Enemies/Patio_de_Comida/Enemy7" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
-position = Vector2(-79, -53)
-positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3"), NodePath("../Node2D4")]
-player = NodePath("../../../../Player")
-
-[node name="Node2D" type="Node2D" parent="Enemies/Patio_de_Comida/Enemy7"]
-position = Vector2(-61, 201)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D2" type="Node2D" parent="Enemies/Patio_de_Comida/Enemy7"]
-position = Vector2(-353, 200)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D3" type="Node2D" parent="Enemies/Patio_de_Comida/Enemy7"]
-position = Vector2(-346, -383)
-scale = Vector2(0.4, 0.4)
-
-[node name="Node2D4" type="Node2D" parent="Enemies/Patio_de_Comida/Enemy7"]
-position = Vector2(-52, -380)
+[node name="Node2D2" type="Node2D" parent="Enemies/Enemy7"]
+position = Vector2(365, 12)
 scale = Vector2(0.4, 0.4)
 
 [node name="Player" parent="." node_paths=PackedStringArray("screen_controller") instance=ExtResource("2_66fat")]
@@ -377,7 +194,5 @@ layer_0/tile_data = PackedInt32Array(131068, 524288, 4, 131070, 524288, 4, 13107
 stream = ExtResource("7_8l48l")
 autoplay = true
 
-[connection signal="body_entered" from="HideAreas/Patio_De_Comida" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="HideAreas/Patio_De_Comida" to="Player" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="HideAreas/Cancha" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="HideAreas/Cancha" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="HideAreas/HideAreas" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="HideAreas/HideAreas" to="Player" method="_on_area_2d_body_exited"]
