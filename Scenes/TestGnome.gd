@@ -48,6 +48,8 @@ var anim_in_progress := false
 @onready var sfx_hit : AudioStreamPlayer2D = $SFXs.get_node("sfx_PlayerHit")
 @onready var sfx_mad : AudioStreamPlayer2D = $SFXs.get_node("sfx_PlayerMad")
 
+@export var screen_controller : Control = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -168,6 +170,7 @@ func start_hiding():
 	anim_in_progress = true
 	anim_body.play("Player_Hidden")
 	anim_hat.play("Hat_Hidden")
+	magic_glow.visible = false
 	print("g'bye")
 		
 func stop_hiding():
@@ -176,6 +179,7 @@ func stop_hiding():
 	anim_in_progress = false
 	can_move = true
 	hiding = false
+	magic_glow.visible = true
 	
 	anim_body.play("Player_Idle")
 	if hat_lost == false:
@@ -211,6 +215,12 @@ func _on_area_2d_body_exited(body):
 func gain_key_item():
 	key_items_gained += 1
 	print(key_items_gained)
+	
+	#    Win-con
+	if key_items_gained == 10:
+		can_move = false
+		screen_controller.win()
+		magic_glow.visible = false
 
 func heal_dmg( heal ):
 	sfx_mad.stop()
@@ -228,11 +238,11 @@ func take_dmg( dmg ):
 	print("le pegaron")
 	timer_attacked.start()
 	canBeAttacked = false
-	modulate.a = 0.5
 	set_hp(hp - dmg)
 	
 	if hp >= 1:
 		sfx_hit.play()
+		modulate.a = 0.5
 	
 	hit_ptcl.emitting = true
 	if hp == 2:
@@ -242,7 +252,10 @@ func take_dmg( dmg ):
 	elif hp == 1:
 		madness.visible = true
 		sfx_mad.play()
-		
+	
+	# Anims
+	anim_body.play("Player_Hit")
+	start_anim(0.3)
 	
 
 func set_hp( new_hp ):
@@ -253,7 +266,10 @@ func set_hp( new_hp ):
 		die()
 
 func die():
+	can_move = false
 	sfx_death.play()
+	screen_controller.game_over()
+	magic_glow.visible = false
 	emit_signal("OnDied")
 	print("Murio")
 	# queue_free() # Documentation: Queues this node to be deleted at the end of the current frame. When deleted, all of its children are deleted as well, and all references to the node and its children become invalid..
