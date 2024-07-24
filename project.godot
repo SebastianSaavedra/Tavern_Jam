@@ -10,10 +10,17 @@ config_version=5
 
 [application]
 
-config/name="Tavern_Jam"
-run/main_scene="res://Scenes/TestGnome.tscn"
+config/name="LaftracheTheCollector"
+run/main_scene="res://Scenes/Main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=0
 
 [dotnet]
 
@@ -71,3 +78,4 @@ Attack={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"

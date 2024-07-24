@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bl8vicfcof8bl"]
+[gd_scene load_steps=8 format=3 uid="uid://cp5tvn0550m6k"]
 
 [ext_resource type="Script" path="res://01_Sprites/HUD/ChangeScene.gd" id="1_3m7kv"]
 [ext_resource type="Texture2D" uid="uid://cg3lhcksio5cf" path="res://01_Sprites/HUD/Window.png" id="1_6allq"]
-[ext_resource type="Theme" path="res://01_Sprites/HUD/Button_theme.tres" id="2_yceh3"]
+[ext_resource type="Theme" uid="uid://bo2eiso1cinbp" path="res://01_Sprites/HUD/Button_theme.tres" id="2_yceh3"]
 [ext_resource type="FontFile" uid="uid://7ikbiryfpn0x" path="res://01_Sprites/HUD/alagard.ttf" id="3_k8ac8"]
 [ext_resource type="Texture2D" uid="uid://lthllsqrfxxo" path="res://01_Sprites/HUD/Negative_icon.png" id="4_u2hhl"]
 [ext_resource type="Texture2D" uid="uid://cp5ddrm7k10bm" path="res://01_Sprites/HUD/Positive_icon.png" id="6_nm2nl"]
+[ext_resource type="Script" path="res://Scenes/fps.gd" id="7_5n1gf"]
 
 [node name="In Game Menu" type="Control"]
 light_mask = 2
@@ -201,6 +202,15 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(32, 40)
 texture = ExtResource("6_nm2nl")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = -293.0
+offset_top = -214.0
+offset_right = -253.0
+offset_bottom = -191.0
+theme_override_fonts/font = ExtResource("3_k8ac8")
+script = ExtResource("7_5n1gf")
 
 [connection signal="pressed" from="Game Over/TextureRect/VBoxContainer/ButtonRetry" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Game Over/TextureRect/VBoxContainer/ButtonRetry" to="." method="_on_button_retry_pressed"]
