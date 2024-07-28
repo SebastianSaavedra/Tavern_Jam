@@ -212,9 +212,9 @@ offset_bottom = -191.0
 theme_override_fonts/font = ExtResource("3_k8ac8")
 script = ExtResource("7_5n1gf")
 
-[connection signal="pressed" from="Game Over/TextureRect/VBoxContainer/ButtonRetry" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Game Over/TextureRect/VBoxContainer/ButtonRetry" to="." method="_on_button_retry_pressed"]
+[connection signal="pressed" from="Game Over/TextureRect/VBoxContainer/ButtonRetry" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="Game Over/TextureRect/VBoxContainer/ButtonRetry" to="." method="_on_button_retry_toggled"]
-[connection signal="pressed" from="Win/TextureRect/VBoxContainer/ButtonRetry" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Win/TextureRect/VBoxContainer/ButtonRetry" to="." method="_on_button_retry_pressed"]
+[connection signal="pressed" from="Win/TextureRect/VBoxContainer/ButtonRetry" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="Win/TextureRect/VBoxContainer/ButtonRetry" to="." method="_on_button_retry_toggled"]
