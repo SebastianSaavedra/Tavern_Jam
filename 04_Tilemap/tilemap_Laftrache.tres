@@ -631,10 +631,6 @@ texture_region_size = Vector2i(32, 32)
 4:6/0 = 0
 4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:6/0/physics_layer_0/angular_velocity = 0.0
-7:12/size_in_atlas = Vector2i(1, 2)
-7:12/0 = 0
-7:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-7:12/0/physics_layer_0/angular_velocity = 0.0
 10:0/size_in_atlas = Vector2i(2, 1)
 10:0/0 = 0
 10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -842,6 +838,12 @@ texture_region_size = Vector2i(32, 32)
 6:14/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:14/0/physics_layer_0/angular_velocity = 0.0
 6:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+7:12/0 = 0
+7:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:12/0/physics_layer_0/angular_velocity = 0.0
+7:13/0 = 0
+7:13/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:13/0/physics_layer_0/angular_velocity = 0.0
 
 [resource]
 tile_size = Vector2i(32, 32)
