@@ -37,6 +37,7 @@ shape = SubResource("CircleShape2D_00v24")
 scale = Vector2(2, 2)
 
 [node name="CollisionShape2D_hitplayer" type="CollisionShape2D" parent="Area2D_vsPlayer"]
+scale = Vector2(0.6, 0.6)
 shape = SubResource("CircleShape2D_00v24")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
