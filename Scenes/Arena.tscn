@@ -49,10 +49,8 @@ collision_mask = 11
 
 [node name="Enemy1" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemy1" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_y72tb")]
+[node name="Enemy" parent="Enemy1" instance=ExtResource("3_y72tb")]
 position = Vector2(298, 173)
-positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3")]
-player = NodePath("../../Player")
 
 [node name="Node2D" type="Node2D" parent="Enemy1"]
 position = Vector2(255, 58)

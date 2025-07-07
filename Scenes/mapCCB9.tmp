@@ -1028,10 +1028,9 @@ scale = Vector2(0.65, 0.65)
 shape = SubResource("CircleShape2D_icixj")
 debug_color = Color(0.674249, 0.502428, 0.19038, 0.42)
 
-[node name="Player" parent="." node_paths=PackedStringArray("screen_controller") instance=ExtResource("2_66fat")]
+[node name="Player" parent="." instance=ExtResource("2_66fat")]
 collision_layer = 1
 collision_mask = 11
-screen_controller = NodePath("Camera2D/In Game Menu")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -1050,11 +1049,11 @@ positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3
 player = NodePath("../../../Player")
 
 [node name="Node2D" type="Node2D" parent="Enemies/Enemy5"]
-position = Vector2(38, -85)
+position = Vector2(4, -119)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D2" type="Node2D" parent="Enemies/Enemy5"]
-position = Vector2(-48, -86)
+position = Vector2(-41, -116)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D3" type="Node2D" parent="Enemies/Enemy5"]
@@ -1062,7 +1061,7 @@ position = Vector2(-39, 325)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D4" type="Node2D" parent="Enemies/Enemy5"]
-position = Vector2(15, 328)
+position = Vector2(-1, 321)
 scale = Vector2(0.4, 0.4)
 
 [node name="Enemy16" type="Node2D" parent="Enemies"]
@@ -1283,7 +1282,7 @@ positions = [NodePath("../Node2D"), NodePath("../Node2D2")]
 player = NodePath("../../../Player")
 
 [node name="Node2D" type="Node2D" parent="Enemies/Enemy24"]
-position = Vector2(7, 288)
+position = Vector2(-5, 284)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D2" type="Node2D" parent="Enemies/Enemy24"]
@@ -1347,11 +1346,11 @@ position = Vector2(-4, -1.00001)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D2" type="Node2D" parent="Enemies/Enemy18"]
-position = Vector2(268, -18)
+position = Vector2(296, -6)
 scale = Vector2(0.4, 0.4)
 
 [node name="Enemy19" type="Node2D" parent="Enemies"]
-position = Vector2(845, -2028)
+position = Vector2(816, -2033)
 
 [node name="Enemy" parent="Enemies/Enemy19" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
 positions = [NodePath("../Node2D"), NodePath("../Node2D2")]
@@ -1362,7 +1361,7 @@ position = Vector2(-4, -1.00001)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D2" type="Node2D" parent="Enemies/Enemy19"]
-position = Vector2(-94, -232)
+position = Vector2(-3, -204)
 scale = Vector2(0.4, 0.4)
 
 [node name="Enemy20" type="Node2D" parent="Enemies"]
@@ -1377,7 +1376,7 @@ position = Vector2(-4, -1.00001)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D2" type="Node2D" parent="Enemies/Enemy20"]
-position = Vector2(-3, -270)
+position = Vector2(9, -256)
 scale = Vector2(0.4, 0.4)
 
 [node name="Enemy8" type="Node2D" parent="Enemies"]
@@ -1388,19 +1387,19 @@ positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3
 player = NodePath("../../../Player")
 
 [node name="Node2D" type="Node2D" parent="Enemies/Enemy8"]
-position = Vector2(1, -36)
+position = Vector2(1, -21)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D2" type="Node2D" parent="Enemies/Enemy8"]
-position = Vector2(67, 211)
+position = Vector2(60, 215)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D3" type="Node2D" parent="Enemies/Enemy8"]
-position = Vector2(-77, 222)
+position = Vector2(-70, 222)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D4" type="Node2D" parent="Enemies/Enemy8"]
-position = Vector2(-61, 326)
+position = Vector2(-67, 323)
 scale = Vector2(0.4, 0.4)
 
 [node name="Enemy13" type="Node2D" parent="Enemies"]
@@ -1427,7 +1426,7 @@ position = Vector2(128, -385)
 scale = Vector2(0.4, 0.4)
 
 [node name="Enemy14" type="Node2D" parent="Enemies"]
-position = Vector2(1015, -1307)
+position = Vector2(972, -1327)
 
 [node name="Enemy" parent="Enemies/Enemy14" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
 positions = [NodePath("../../Enemy13/Node2D"), NodePath("../../Enemy13/Node2D2"), NodePath("../../Enemy13/Node2D3"), NodePath("../../Enemy13/Node2D4")]
@@ -1438,7 +1437,7 @@ position = Vector2(3, -16)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D2" type="Node2D" parent="Enemies/Enemy14"]
-position = Vector2(-302, -2.99998)
+position = Vector2(-278, 22)
 scale = Vector2(0.4, 0.4)
 
 [node name="Enemy15" type="Node2D" parent="Enemies"]
@@ -1464,15 +1463,15 @@ positions = [NodePath("../Node2D"), NodePath("../Node2D2"), NodePath("../Node2D3
 player = NodePath("../../../Player")
 
 [node name="Node2D" type="Node2D" parent="Enemies/Enemy9"]
-position = Vector2(-8, -148)
+position = Vector2(-15, -212)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D2" type="Node2D" parent="Enemies/Enemy9"]
-position = Vector2(278, -183)
+position = Vector2(270, -261)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D3" type="Node2D" parent="Enemies/Enemy9"]
-position = Vector2(265, -8)
+position = Vector2(265, -1)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D4" type="Node2D" parent="Enemies/Enemy9"]
@@ -1483,16 +1482,15 @@ scale = Vector2(0.4, 0.4)
 position = Vector2(913, -35)
 
 [node name="Enemy" parent="Enemies/Enemy10" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
-position = Vector2(206, -48)
 positions = [NodePath("../Node2D"), NodePath("../Node2D2")]
 player = NodePath("../../../Player")
 
 [node name="Node2D" type="Node2D" parent="Enemies/Enemy10"]
-position = Vector2(26.0001, -64)
+position = Vector2(505, -48)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D2" type="Node2D" parent="Enemies/Enemy10"]
-position = Vector2(209, -73)
+position = Vector2(6, -33)
 scale = Vector2(0.4, 0.4)
 
 [node name="Enemy12" type="Node2D" parent="Enemies"]
@@ -1503,7 +1501,7 @@ positions = [NodePath("../Node2D"), NodePath("../Node2D2")]
 player = NodePath("../../../Player")
 
 [node name="Node2D" type="Node2D" parent="Enemies/Enemy12"]
-position = Vector2(174, -11)
+position = Vector2(168, -11)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D2" type="Node2D" parent="Enemies/Enemy12"]
@@ -1511,18 +1509,18 @@ position = Vector2(6, -12)
 scale = Vector2(0.4, 0.4)
 
 [node name="Enemy11" type="Node2D" parent="Enemies"]
-position = Vector2(1399, -285)
+position = Vector2(1416, -275)
 
 [node name="Enemy" parent="Enemies/Enemy11" node_paths=PackedStringArray("positions", "player") instance=ExtResource("3_w2j4k")]
 positions = [NodePath("../Node2D"), NodePath("../Node2D2")]
 player = NodePath("../../../Player")
 
 [node name="Node2D" type="Node2D" parent="Enemies/Enemy11"]
-position = Vector2(-4.99994, 238)
+position = Vector2(1.00006, 5.99999)
 scale = Vector2(0.4, 0.4)
 
 [node name="Node2D2" type="Node2D" parent="Enemies/Enemy11"]
-position = Vector2(-2.00012, 1.00001)
+position = Vector2(-550, 115)
 scale = Vector2(0.4, 0.4)
 
 [node name="Enemy6" type="Node2D" parent="Enemies"]

@@ -512,6 +512,6 @@ theme = ExtResource("3_vnudj")
 theme_override_fonts/font = ExtResource("4_d8l0n")
 text = "Play"
 
-[connection signal="pressed" from="Main menú/ButtonRetry" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Main menú/ButtonRetry" to="." method="_on_button_retry_pressed"]
+[connection signal="pressed" from="Main menú/ButtonRetry" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="Main menú/ButtonRetry" to="." method="_on_button_retry_toggled"]

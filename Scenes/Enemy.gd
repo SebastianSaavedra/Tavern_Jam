@@ -40,9 +40,6 @@ func _physics_process(_delta: float):
 		if result.collider == player:
 			if playerSeen == false:
 				playerSeen = true
-				
-				player.speed_up()
-				player.cannot_hide()
 				chasing = true
 				$Timer2.stop()
 				$Timer.start()
@@ -115,7 +112,8 @@ func make_path() -> void:
 func _on_timer_timeout():
 	make_path()
 	
-
+func is_chasing():
+	return chasing
 
 func _on_area_2d_body_entered(body):
 	can_be_stunned = true
@@ -125,7 +123,6 @@ func _on_area_2d_body_entered(body):
 		print("in")
 		
 		if playerSeen == true:
-			player.cannot_hide()
 			chasing = true
 			$Timer2.stop()
 			$Timer.start()
@@ -137,8 +134,6 @@ func _on_area_2d_body_exited(body):
 		print("out")
 		playerIn = false
 		$Timer2.start()
-		body.slow_down()
-		player.Can_Hide()
 		
 
 func _on_timer_2_timeout():
@@ -146,8 +141,6 @@ func _on_timer_2_timeout():
 	playerIn = false
 	chasing = false
 	playerSeen = false
-	player.slow_down()
-	player.Can_Hide()
 
 func _on_area_2d_vs_player_body_entered(body):
 	if body == player:
